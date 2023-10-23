@@ -10,18 +10,10 @@ while (turtle.getFuelLevel()>half) do
     while turtle.detect() do
         turtle.dig()        
     end
-    turtle.forward()
-    
-    while turtle.detect() do
-        turtle.dig()        
-    end
     turtle.down()
-    while turtle.detect() do
-        turtle.dig()        
-    end
     turtle.forward()
 
-    count = count + 2
+    count = count + 1
 end
 
 for i = count,1,-1
