@@ -5,11 +5,15 @@ local count = 0
 while (turtle.getFuelLevel()>half) do
     turtle.dig()
     turtle.up()
-    turtle.dig()
+    while turtle.detect() do
+        turtle.dig()        
+    end
     turtle.forward()
     
     turtle.dig()
-    turtle.down()
+    while turtle.detect() do
+        turtle.dig()        
+    end
     turtle.dig()
     turtle.forward()
 
