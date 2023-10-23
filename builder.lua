@@ -35,23 +35,27 @@ end
 
 for i = z, 1, -1 do
     turtle.up()
-    for j = x, 1, -1 do
+    for j = 1, x, 1 do
         turtle.turnRight()
         turtle.forward()
         turtle.turnLeft()
         for k = y, 1, -1 do
-            if(mapData[i][j]:sub(k,k) ~= '.')then
-                turtle.placeDown()                
+            if(j<=#mapData[i][j])then
+                local currentChar = mapData[i][k]:sub(j,j)
+                if(currentChar ~= '.' or currentChar ~=' ')then
+                    turtle.placeDown()                
+                end
+                
             end
             turtle.forward()
         end
-        for k = y, 1, -1 do
+        for k = 1, y, 1 do
             turtle.back()
         end
         
     end
     turtle.turnLeft()
-    for j = x, 1, -1 do
+    for j = 1, x, 1 do
         turtle.forward()
         
     end

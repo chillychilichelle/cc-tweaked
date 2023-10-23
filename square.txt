@@ -1,15 +1,15 @@
 6
 4
 3
-...XX.
-.X.XX.
-.XX.X.
-.XX...
+...X.
+..x.X.
+.X...x
+x.....
 
-.X....
-...X..
-.XXX.X
-X.....
+...XXX
+..XXXX
+.XXXXX
+XXXXXX
 
 XXXXXX
 X....X
