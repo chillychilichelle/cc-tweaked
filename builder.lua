@@ -7,7 +7,7 @@ if(not fs.exists(target)) then
     return
 end
 
-print("Reading "..target+" ...")
+print("Reading "..target.." ...")
 local file = fs.open(target,"r")
 local x = tonumber(file.readLine())
 local y = tonumber(file.readLine())
