@@ -1,0 +1,6 @@
+rednet.open("left")
+rednet.open("right")
+rednet.open("front")
+rednet.open("back")
+rednet.open("bottom")
+rednet.open("top")

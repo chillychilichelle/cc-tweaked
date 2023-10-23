@@ -40,7 +40,9 @@ for i = 1, z, 1 do
         turtle.forward()
         turtle.turnLeft()
         for k = 1, x, 1 do
-            turtle.placeDown()
+            if(not mapData[i][j]:sub(k,1) == '.')then
+                turtle.placeDown()                
+            end
             turtle.forward()
         end
         for k = 1, x, 1 do
