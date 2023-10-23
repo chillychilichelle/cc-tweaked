@@ -40,9 +40,9 @@ for i = z, 1, -1 do
         turtle.forward()
         turtle.turnLeft()
         for k = y, 1, -1 do
-            if(j<=#mapData[i][j])then
+            if(k<=#mapData[i][j])then
                 local currentChar = mapData[i][k]:sub(j,j)
-                if(currentChar ~= '.' or currentChar ~=' ')then
+                if(currentChar ~= '.' and currentChar ~=' ')then
                     turtle.placeDown()                
                 end
                 
