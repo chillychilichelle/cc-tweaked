@@ -33,25 +33,25 @@ for i = 1, z, 1 do
     
 end
 
-for i = 1, z, 1 do
+for i = z, 1, -1 do
     turtle.up()
-    for j = 1, y, 1 do
+    for j = y, 1, -1 do
         turtle.turnRight()
         turtle.forward()
         turtle.turnLeft()
-        for k = 1, x, 1 do
-            if(mapData[i][j]:sub(k,1) ~= '.')then
+        for k = x, 1, -1 do
+            if(mapData[i][j]:sub(k,k) ~= '.')then
                 turtle.placeDown()                
             end
             turtle.forward()
         end
-        for k = 1, x, 1 do
+        for k = x, 1, -1 do
             turtle.back()
         end
         
     end
     turtle.turnLeft()
-    for j = 1, y, 1 do
+    for j = y, 1, -1 do
         turtle.forward()
         
     end
