@@ -1,3 +1,5 @@
+require 'turtleUtil.lua'
+
 local args  = {...}
 local target = args[1]
 print("Attempting to build "..target.." ...")
@@ -40,7 +42,10 @@ for i = z, 1, -1 do
         turtle.forward()
         turtle.turnLeft()
         for k = y, 1, -1 do
-            if(k<=#mapData[i][j])then
+            if(ifCurrentSlotIsEmpty())then
+                goToNextItemSlot()
+            end
+            if(j<=#mapData[i][k])then
                 local currentChar = mapData[i][k]:sub(j,j)
                 if(currentChar ~= '.' and currentChar ~=' ')then
                     turtle.placeDown()                
