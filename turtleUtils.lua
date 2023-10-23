@@ -1,6 +1,6 @@
 function goToNextItemSlot()
-    local cur = turtle.getSelectedSlot()+1
-    turtle.select(cur%16)
+    local cur = turtle.getSelectedSlot()
+    turtle.select( (cur%16)+1)
 end
 
 function ifCurrentSlotIsEmpty()

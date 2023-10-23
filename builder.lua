@@ -1,4 +1,4 @@
-require "turtleUtils.lua"
+require "turtleUtils"
 
 local args  = {...}
 local target = args[1]

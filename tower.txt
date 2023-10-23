@@ -1,23 +1,17 @@
 5
 5
 7
+x.x.x
+ ... 
+x...X
+ ... 
+x.x.x
+
 .XXX.
 Xxxxx
 xxxxX
 xxxxX
 .XxX
-
-.XXX.
-X...x
-x...X
-x...X
-.X X
-
-.XXX.
-X...x
-x...X
-x...X
-.X X
 
 .XXX.
 X...x
@@ -32,13 +26,19 @@ x...X
 .XXX
 
 .XXX.
+X...x
+x...X
+x...X
+.X X
+
+.XXX.
+X...x
+x...X
+x...X
+.X X
+
+.XXX.
 Xxxxx
 xxxxX
 xxxxX
 .XxX
-
-x.x.x
- ... 
-x...X
- ... 
-x.x.x
