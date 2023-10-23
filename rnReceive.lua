@@ -1,3 +1,5 @@
-local r=rednet.receive()
-print("Received message: ")
-print(r)
+while true do
+    local senderId, message, protocol =rednet.receive()
+    print(senderId..": "..message)
+    
+end
