@@ -2,7 +2,7 @@ local args  = {...}
 local target = args[1]
 print("Attempting to build "..target.." ...")
 
-if(!fs.exists(target)) then
+if(not fs.exists(target)) then
     print("The blueprint does not exist...")
     return
 end
