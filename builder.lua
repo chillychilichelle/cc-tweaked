@@ -32,3 +32,27 @@ for i = 1, z, 1 do
     end
     
 end
+
+for i = 1, z, 1 do
+    turtle.up()
+    for j = 1, y, 1 do
+        turtle.turnRight()
+        turtle.forward()
+        turtle.turnLeft()
+        for k = 1, x, 1 do
+            turtle.placeDown()
+            turtle.forward()
+        end
+        for k = 1, x, 1 do
+            turtle.back()
+        end
+        
+    end
+    turtle.turnLeft()
+    for j = 1, y, 1 do
+        turtle.forward()
+        
+    end
+    turtle.turnRight()
+    
+end
