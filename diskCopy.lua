@@ -1,5 +1,5 @@
-local files = fs.list("disk/")
+local files = fs.list("")
 
 for i = 1, #files, 1 do
-    print(files[0])
+    print(files[i])
 end
