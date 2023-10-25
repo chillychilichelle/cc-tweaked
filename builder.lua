@@ -37,9 +37,6 @@ end
 
 for i = 1, z, 1 do
     for j = 1, x, 1 do
-        turtle.turnRight()
-        turtle.forward()
-        turtle.turnLeft()
         for k = y, 1, -1 do
             if(ifCurrentSlotIsEmpty())then
                 goToNextItemSlot()
@@ -59,6 +56,10 @@ for i = 1, z, 1 do
         for k = 1, y, 1 do
             turtle.back()
         end
+        
+        turtle.turnRight()
+        turtle.forward()
+        turtle.turnLeft()
         
     end
     turtle.turnLeft()

@@ -1,20 +1,15 @@
 4
 4
-24
-xxxx
-xxxx
-xxxx
-xxxx
+23
+....
+.xx.
+.xx.
+....
 
 .
 .
 .
 .
-
-.xx
-x  x
-x  x
-.xx 
 
 .xx
 x  x
