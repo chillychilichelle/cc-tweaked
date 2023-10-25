@@ -35,7 +35,7 @@ for i = 1, z, 1 do
     
 end
 
-for i = 1, z, -1 do
+for i = 1, z, 1 do
     for j = 1, x, 1 do
         turtle.turnRight()
         turtle.forward()
