@@ -46,13 +46,13 @@ function TurtleState(coords, orientation)
         if(yDif > 0) then
             if(orientation~=0) then 
                 turtle.turnLeft()
-                orientation=1
+                orientation=0
             end
             moveForward(yDif)
         elseif (yDif < 0) then
             if(orientation~=0) then 
                 turtle.turnLeft()
-                orientation=1
+                orientation=0
             end
             moveBack(-yDif)
         end
