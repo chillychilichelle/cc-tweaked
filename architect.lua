@@ -49,25 +49,31 @@ local currentCoords = {1, 1}
 
 -- for each z layer
 for i = 1, z, 1 do
-    local currentPoints = mapData[i]
+    local layersPoints = mapData[i]
 
-    while #currentPoints > 0 do
-        local nn = currentPoints[1]
+    print("Layer has "..#layersPoints.." points")
+
+    while #layersPoints > 0 do
+        local nn = layersPoints[1]
         local nnDist = manhattan(currentCoords, nn)
+        local nnInd =1
 
-        for j=1, #currentPoints, 1 do
-            local newCoords= currentPoints[j]
-
+        for j=1, #layersPoints, 1 do
+            local newCoords= layersPoints[j]
             local newDist = manhattan(currentCoords, newCoords)
+            print("Checking "..newCoords[1]..", "..newCoords[2])
             if (newDist <nnDist) then
                 nn = newCoords
                 nnDist = newDist
+                nnInd = j
+                print("New nearest neighbour is "..nn[1]..", "..nn[2])
             end
             if(newDist==1) then break end
         end 
 
-        table.remove(currentPoints,j)
+        table.remove(layersPoints,nnInd)
 
+        print("Moving from "..currentCoords[1]..", "..currentCoords[2].. " to "..nn[1]..", "..nn[2])
         goToCoords(currentCoords,nn)
         currentCoords = nn
 
