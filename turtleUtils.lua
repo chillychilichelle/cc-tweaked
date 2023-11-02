@@ -49,7 +49,7 @@ function goToCoords(a,b)
     yDif = y2-y1
     if(yDif > 0) then
         moveForward(yDif)
-    elseif (xDif < 0) then
+    elseif (yDif < 0) then
         moveBack(-yDif)
     end
 end
