@@ -1,6 +1,10 @@
 require "turtleUtils"
 require "utils"
-require "numpy"
+
+function shouldPlaceBlock(currentChar)
+    return (currentChar ~= '.' and currentChar ~=' ')
+end
+
 
 local args  = {...}
 local target = args[1]
@@ -28,8 +32,9 @@ for i = 1, z, 1 do
         for k = 1, #str, 1 do
             local currentChar = str:sub(k,k)
             if(shouldPlaceBlock(currentChar)) then
-                mapData[mapDataZCnt][1]=k
-                mapData[mapDataZCnt][2]=j
+                mapData[i][mapDataZCnt] = {}
+                mapData[i][mapDataZCnt][1]=k
+                mapData[i][mapDataZCnt][2]=j
                 mapDataZCnt = mapDataZCnt + 1
             end
         end
@@ -81,8 +86,3 @@ for i = 1, z, 1 do
     
 end
 
-
-
-function shouldPlaceBlock(currentChar)
-    return (currentChar ~= '.' and currentChar ~=' ')
-end
