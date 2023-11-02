@@ -49,7 +49,7 @@ file.close()
 print("This blueprint requires "..blockCnt.." blocks to construct!")
 
 local currentCoords = {1, 1}
-
+local ts = TurtleState(currentCoords,0)
 
 --nearest neighbour algorithm per z-layer
 for i = 1, z, 1 do
@@ -78,7 +78,8 @@ for i = 1, z, 1 do
         table.remove(layersPoints,nnInd)
 
         --print("Moving from "..currentCoords[1]..", "..currentCoords[2].. " to "..nn[1]..", "..nn[2])
-        goToCoords(currentCoords,nn)
+        --goToCoords(currentCoords,nn)
+        ts.moveTo(nn)
         currentCoords = nn
 
         
