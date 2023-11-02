@@ -27,13 +27,6 @@ for i = 1, z, 1 do
 end
 
 file.close()
-for i = 1, z, 1 do
-    for j = 1, y, 1 do
-        print(mapData[i][j])
-        
-    end
-    
-end
 
 for i = 1, z, 1 do
     for j = 1, x, 1 do
