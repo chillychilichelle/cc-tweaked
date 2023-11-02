@@ -9,8 +9,9 @@ end
 
 function TurtleState(coords, orientation)
     local self = {}
-    self.x = coords[1]
-    self.y = coords[2]
+    self.coords = {}
+    self.coords[1] = coords[1]
+    self.coords[2] = coords[2]
 
     -- 0 UP
     -- 1 RIGHT
@@ -18,9 +19,9 @@ function TurtleState(coords, orientation)
     -- 3 LEFT
     self.orientation = orientation
 
-    function self:moveTo(target)
-        local x1 = coords[1]
-        local y1 = coords[2]
+    function self.moveTo(target)
+        local x1 = self.coords[1]
+        local y1 = self.coords[2]
     
         local x2 = target[1]
         local y2 = target[2]
@@ -55,9 +56,9 @@ function TurtleState(coords, orientation)
             end
             moveBack(-yDif)
         end
-        
-        coords[1]=target[1]
-        coords[2]=target[2]
+
+        self.coords[1]=target[1]
+        self.coords[2]=target[2]
     end
 
 
