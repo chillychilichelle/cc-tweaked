@@ -58,18 +58,18 @@ for i = 1, z, 1 do
     --print("Layer has "..#layersPoints.." points")
 
     while #layersPoints > 0 do
-        local nn = layersPoints[1]
+        local nnInd =#layersPoints
+        local nn = layersPoints[nnInd]
         local nnDist = manhattan(currentCoords, nn)
-        local nnInd =1
 
         for j=1, #layersPoints, 1 do
             local newCoords= layersPoints[j]
             local newDist = manhattan(currentCoords, newCoords)
             --print("Checking "..newCoords[1]..", "..newCoords[2])
             if (newDist <nnDist) then
+                nnInd = j
                 nn = newCoords
                 nnDist = newDist
-                nnInd = j
                 --print("New nearest neighbour is "..nn[1]..", "..nn[2])
             end
             if(newDist<=1) then break end
