@@ -12,6 +12,7 @@ function TurtleState(coords, orientation)
     self.coords = {}
     self.coords[1] = coords[1]
     self.coords[2] = coords[2]
+    self.coords[3] = coords[3]
 
     -- 0 UP
     -- 1 RIGHT
@@ -19,12 +20,12 @@ function TurtleState(coords, orientation)
     -- 3 LEFT
     self.orientation = orientation
 
-    function self.moveTo(target)
+    function self.moveToHorizontal(target)
         local x1 = self.coords[1]
-        local y1 = self.coords[2]
+        local z1 = self.coords[3]
     
         local x2 = target[1]
-        local y2 = target[2]
+        local z2 = target[2]
         
         local xDif = x2-x1
         if(xDif > 0) then
@@ -42,7 +43,7 @@ function TurtleState(coords, orientation)
         end
         
         
-        local yDif = y2-y1
+        local yDif = z2-z1
         if(yDif > 0) then
             if(orientation~=0) then 
                 turtle.turnLeft()
@@ -58,10 +59,14 @@ function TurtleState(coords, orientation)
         end
 
         self.coords[1]=target[1]
-        self.coords[2]=target[2]
+        self.coords[3]=target[2]
     end
 
-
+    function self.getXZ()
+        local x = self.coords[1]
+        local z = self.coords[3]
+        return {x,z}
+    end
 
     return self
 end
@@ -91,7 +96,7 @@ function moveBack(x)
     end
 end
 
-function goToCoords(a,b)
+function goToCoordsHorizontal(a,b)
     local x1 = a[1]
     local y1 = a[2]
 

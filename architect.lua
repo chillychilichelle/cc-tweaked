@@ -25,10 +25,10 @@ print("X:  "..x.." Y:  "..y.." Z:  "..z)
 local mapData ={}
 local blockCnt=0
 
-for i = 1, z, 1 do
+for i = 1, y, 1 do
     local mapDataZCnt = 1
     mapData[i]={}
-    for j = y, 1, -1 do
+    for j = z, 1, -1 do
         local str = file.readLine()
         for k = 1, #str, 1 do
             local currentChar = str:sub(k,k)
@@ -48,23 +48,23 @@ file.close()
 
 print("This blueprint requires "..blockCnt.." blocks to construct!")
 
-local currentCoords = {1, 1}
-local ts = TurtleState(currentCoords,0)
+local startingCoords = {1, 1, 1}
+local ts = TurtleState(startingCoords,0)
 
---nearest neighbour algorithm per z-layer
-for i = 1, z, 1 do
+--nearest neighbour algorithm per y-layer
+for i = 1, y, 1 do
     local layersPoints = mapData[i]
-
+    
     --print("Layer has "..#layersPoints.." points")
 
     while #layersPoints > 0 do
         local nnInd =#layersPoints
         local nn = layersPoints[nnInd]
-        local nnDist = manhattan(currentCoords, nn)
+        local nnDist = manhattan(ts.getXZ(), nn)
 
         for j=1, #layersPoints, 1 do
             local newCoords= layersPoints[j]
-            local newDist = manhattan(currentCoords, newCoords)
+            local newDist = manhattan(ts.getXZ(), newCoords)
             --print("Checking "..newCoords[1]..", "..newCoords[2])
             if (newDist <nnDist) then
                 nnInd = j
@@ -79,8 +79,7 @@ for i = 1, z, 1 do
 
         --print("Moving from "..currentCoords[1]..", "..currentCoords[2].. " to "..nn[1]..", "..nn[2])
         --goToCoords(currentCoords,nn)
-        ts.moveTo(nn)
-        currentCoords = nn
+        ts.moveToHorizontal(nn)
 
         
         if(ifCurrentSlotIsEmpty())then
