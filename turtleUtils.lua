@@ -1,11 +1,3 @@
-function goToNextItemSlot()
-    local cur = turtle.getSelectedSlot()
-    turtle.select( (cur%16)+1)
-end
-
-function ifCurrentSlotIsEmpty()
-    return turtle.getItemCount() <=0
-end
 
 function TurtleState(coords, orientation)
     local self = {}
@@ -146,4 +138,39 @@ function goToCoordsHorizontal(a,b)
     elseif (yDif < 0) then
         moveBack(-yDif)
     end
+end
+
+function goToNextItemSlot()
+    local cur = turtle.getSelectedSlot()
+    turtle.select( ((cur-1)%16)+1)
+end
+
+function ifCurrentSlotIsEmpty()
+    return turtle.getItemCount() <=0
+end
+
+function getInventory()
+    local inventory ={}
+    for i = 1, 16, 1 do
+        inventory[i]=turtle.getItemDetail(i)
+    end
+    return inventory
+end
+
+
+--TODO doesnt check if slot is blocks
+function ifInventoryIsEmptyOfBlocks()
+    local items = getInventory()
+
+    for i = 1, 16, 1 do
+        local cur = items[i]
+        print(i..": ")
+        if cur ~= nil then    
+            print("Item name: ", cur.name)
+            print("Item count: ", cur.count)
+            return false
+        end
+    end
+    return true
+
 end
