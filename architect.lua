@@ -71,7 +71,7 @@ for i = 1, y, 1 do
                 nnDist = newDist
                 --print("New nearest neighbour is "..nn[1]..", "..nn[2])
             end
-            if(newDist<=1) then break end
+            if(nnDist<=1) then break end
         end 
 
         table.remove(layersPoints,nnInd)

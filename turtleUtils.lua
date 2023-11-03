@@ -14,6 +14,8 @@ function TurtleState(coords, orientation)
     self.coords[2] = coords[2]
     self.coords[3] = coords[3]
 
+    self.destroyPerms = true
+
     -- 0 UP
     -- 1 RIGHT
     -- 2 DOWN
