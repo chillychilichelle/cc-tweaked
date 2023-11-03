@@ -62,6 +62,22 @@ function TurtleState(coords, orientation)
         self.coords[3]=target[2]
     end
 
+    function self.moveUp(x)
+        for i = 1, x, 1 do
+            if turtle.up() then
+                self.coords[2] = self.coords[2] + 1
+            end
+        end
+    end
+
+    function self.moveDown(x)
+        for i = 1, x, 1 do
+            if turtle.down() then
+                self.coords[2] = self.coords[2] - 1
+            end
+        end
+    end
+
     function self.getXZ()
         local x = self.coords[1]
         local z = self.coords[3]
@@ -77,24 +93,34 @@ function moveForward(x)
         turtle.forward()
     end
 end
+function moveBack(x)
+    for i = 1, x, 1 do
+        turtle.back()
+    end
+end
+
+function moveUp(x)
+    for i = 1, x, 1 do
+        turtle.up()
+    end
+end
+function moveDown(x)
+    for i = 1, x, 1 do
+        turtle.down()
+    end
+end
 
 function moveLeft(x)
     turtle.turnLeft()
     moveForward(x)
     turtle.turnRight()
 end
-
 function moveRight(x)
     turtle.turnRight()
     moveForward(x)
     turtle.turnLeft()
 end
 
-function moveBack(x)
-    for i = 1, x, 1 do
-        turtle.back()
-    end
-end
 
 function goToCoordsHorizontal(a,b)
     local x1 = a[1]

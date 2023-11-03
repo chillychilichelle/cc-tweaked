@@ -54,7 +54,6 @@ local ts = TurtleState(startingCoords,0)
 --nearest neighbour algorithm per y-layer
 for i = 1, y, 1 do
     local layersPoints = mapData[i]
-    
     --print("Layer has "..#layersPoints.." points")
 
     while #layersPoints > 0 do
@@ -92,7 +91,7 @@ for i = 1, y, 1 do
         turtle.placeDown()        
 
     end
-    turtle.up()
+    ts.moveUp(1)
     
 end
 
