@@ -1,5 +1,5 @@
 -- https://pastebin.com/uePgaAnd
--- uePgaAnd
+-- pastebin get uePgaAnd gh.lua
 
 local args  = {...}
 local target = args[1]
