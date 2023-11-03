@@ -20,6 +20,7 @@ function TurtleState(coords, orientation)
     -- 3 LEFT
     self.orientation = orientation
 
+    --TODO: assumes will never be blocked
     function self.moveToHorizontal(target)
         local x1 = self.coords[1]
         local z1 = self.coords[3]
