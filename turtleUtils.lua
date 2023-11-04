@@ -140,9 +140,25 @@ function goToCoordsHorizontal(a,b)
     end
 end
 
-function goToNextItemSlot()
+function nextItemSlot()
     local cur = turtle.getSelectedSlot()
     turtle.select( ((cur-1)%16)+1)
+end
+
+function nextFullItemSlot()
+    if ifInventoryIsEmptyOfBlocks() then
+        return false
+    end
+    
+    local inventory = getInventory()
+    for i = 1, 16, 1 do
+        local item =inventory[i]
+        if item~=nil then
+            turtle.select(item)
+            return true
+        end
+    end
+    return false
 end
 
 function ifCurrentSlotIsEmpty()

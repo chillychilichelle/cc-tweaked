@@ -32,7 +32,7 @@ for i = 1, z, 1 do
     for j = 1, x, 1 do
         for k = y, 1, -1 do
             if(ifCurrentSlotIsEmpty())then
-                goToNextItemSlot()
+                nextItemSlot()
             end
             if(j<=#mapData[i][k])then
                 local currentChar = mapData[i][k]:sub(j,j)

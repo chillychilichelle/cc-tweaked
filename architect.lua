@@ -82,7 +82,7 @@ for i = 1, y, 1 do
 
         
         if(ifCurrentSlotIsEmpty())then
-            goToNextItemSlot()
+            nextItemSlot()
         end
 
         if(turtle.detectDown())then
