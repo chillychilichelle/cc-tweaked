@@ -8,15 +8,20 @@ function manhattan(a, b)
     return math.abs(x1-x2)+math.abs(y1-y2)
 end
 
-function arrayDeepCopy(arr)
+function deepCopyArray(arr)
     local copy = {}
     for i, v in ipairs(arr) do
       if type(v) == "table" then
-        copy[i] = table.arrayDeepCopy(v)  -- Recursively clone nested tables
+        copy[i] = deepCopyArray(v)  -- Recursively clone nested tables
       else
         copy[i] = v
       end
     end
     return copy
 end
-  
+
+function printArray(arr)
+  for i = 1, #arr, 1 do
+    print("["..i.."]: "..arr[i])
+  end
+end

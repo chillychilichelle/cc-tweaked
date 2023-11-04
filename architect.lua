@@ -5,6 +5,17 @@ function shouldPlaceBlock(currentChar)
     return (currentChar ~= '.' and currentChar ~=' ')
 end
 
+function restockProcess()
+    local leftOff =deepCopyArray(ts.coords)
+    printArray(leftOff)
+
+end
+
+restockProcess()
+if true then
+    return
+end
+
 
 local args  = {...}
 local target = args[1]
@@ -82,7 +93,12 @@ for i = 1, y, 1 do
 
         
         if(ifCurrentSlotIsEmpty())then
-            nextItemSlot()
+            if(ifInventoryIsEmptyOfBlocks())then
+                --return and refill
+                restockProcess()
+            else 
+                nextFullItemSlot()
+            end
         end
 
         if(turtle.detectDown())then
@@ -94,4 +110,3 @@ for i = 1, y, 1 do
     ts.moveUp(1)
     
 end
-
