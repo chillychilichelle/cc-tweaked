@@ -14,7 +14,7 @@ function restockProcess(ts)
         turtle.turnLeft()
     end
 
-    ts.moveToHorizontal({1,1})
+    ts.moveToHorizontal({1,0})
     ts.moveToVertical(1)
     turtle.turnRight()
     turtle.turnRight()
