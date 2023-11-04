@@ -1,5 +1,6 @@
 
 function TurtleState(coords, orientation)
+    ORIGIN = {1,1,1}
     local self = {}
     self.coords = {}
     self.coords[1] = coords[1]
@@ -8,10 +9,10 @@ function TurtleState(coords, orientation)
 
     self.destroyPerms = true
 
-    -- 0 UP
-    -- 1 RIGHT
-    -- 2 DOWN
-    -- 3 LEFT
+    -- 1 FORWARD
+    -- 2 RIGHT
+    -- 3 BACK
+    -- 4 LEFT
     self.orientation = orientation
 
     --TODO: assumes will never be blocked
@@ -24,37 +25,49 @@ function TurtleState(coords, orientation)
         
         local xDif = x2-x1
         if(xDif > 0) then
-            if(orientation~=1) then 
+            if(orientation~=2) then 
                 turtle.turnRight()
-                orientation=1
+                orientation=2
             end
             moveForward(xDif)
         elseif (xDif < 0) then
-            if(orientation~=1) then 
+            if(orientation~=2) then 
                 turtle.turnRight()
-                orientation=1
+                orientation=2
             end
             moveBack(-xDif)
         end
         
         
-        local yDif = z2-z1
-        if(yDif > 0) then
-            if(orientation~=0) then 
+        local zDif = z2-z1
+        if(zDif > 0) then
+            if(orientation~=1) then 
                 turtle.turnLeft()
-                orientation=0
+                orientation=1
             end
-            moveForward(yDif)
-        elseif (yDif < 0) then
-            if(orientation~=0) then 
+            moveForward(zDif)
+        elseif (zDif < 0) then
+            if(orientation~=1) then 
                 turtle.turnLeft()
-                orientation=0
+                orientation=1
             end
-            moveBack(-yDif)
+            moveBack(-zDif)
         end
 
         self.coords[1]=target[1]
         self.coords[3]=target[2]
+    end
+
+    function  self.moveToVertical(y2)
+        local y1 = self.coords[2]
+        local yDif = y2-y1
+        if(yDif > 0) then
+            moveUp(yDif)
+        elseif (yDif < 0) then
+            moveDown(-yDif)
+        end
+
+        self.coords[2]=y2
     end
 
     function self.moveUp(x)

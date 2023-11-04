@@ -7,8 +7,28 @@ end
 
 function restockProcess(ts)
     local leftOff =deepCopyArray(ts.coords)
+    local dir =ts.orientation
     printArray(leftOff)
 
+    if dir==1 then
+        turtle.turnLeft()
+    end
+
+    ts.moveToHorizontal({1,1})
+    ts.moveToVertical(1)
+    turtle.turnRight()
+    turtle.turnRight()
+    while turtle.suck() do
+       print("Suck...") 
+    end
+    turtle.turnRight()
+    turtle.turnRight()
+    ts.moveToVertical(leftOff[2])
+    ts.moveToHorizontal(leftOff[1],leftOff[3])
+    
+    if dir==1 then
+        turtle.turnRight()
+    end
 end
 
 
@@ -55,12 +75,8 @@ file.close()
 print("This blueprint requires "..blockCnt.." blocks to construct!")
 
 local startingCoords = {1, 1, 1}
-local ts = TurtleState(startingCoords,0)
+local ts = TurtleState(startingCoords,1)
 
-restockProcess(ts)
-if true then
-    return
-end
 
 --nearest neighbour algorithm per y-layer
 for i = 1, y, 1 do
