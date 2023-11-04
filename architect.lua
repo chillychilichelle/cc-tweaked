@@ -111,7 +111,7 @@ for i = 1, y, 1 do
         if(ifCurrentSlotIsEmpty())then
             if(ifInventoryIsEmptyOfBlocks())then
                 --return and refill
-                restockProcess()
+                restockProcess(ts)
             else 
                 nextFullItemSlot()
             end
