@@ -5,15 +5,10 @@ function shouldPlaceBlock(currentChar)
     return (currentChar ~= '.' and currentChar ~=' ')
 end
 
-function restockProcess()
+function restockProcess(ts)
     local leftOff =deepCopyArray(ts.coords)
     printArray(leftOff)
 
-end
-
-restockProcess()
-if true then
-    return
 end
 
 
@@ -61,6 +56,11 @@ print("This blueprint requires "..blockCnt.." blocks to construct!")
 
 local startingCoords = {1, 1, 1}
 local ts = TurtleState(startingCoords,0)
+
+restockProcess(ts)
+if true then
+    return
+end
 
 --nearest neighbour algorithm per y-layer
 for i = 1, y, 1 do
