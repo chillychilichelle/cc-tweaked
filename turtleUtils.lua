@@ -142,7 +142,7 @@ end
 
 function nextItemSlot()
     local cur = turtle.getSelectedSlot()
-    turtle.select( ((cur-1)%16)+1)
+    turtle.select( (cur%16)+1)
 end
 
 function nextFullItemSlot()
@@ -151,10 +151,12 @@ function nextFullItemSlot()
     end
     
     local inventory = getInventory()
+    local cur = turtle.getSelectedSlot()
     for i = 1, 16, 1 do
+        cur = (cur%16)+1
         local item =inventory[i]
         if item~=nil then
-            turtle.select(item)
+            turtle.select(i)
             return true
         end
     end
