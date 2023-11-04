@@ -10,7 +10,7 @@ function restockProcess(ts)
     local dir =ts.orientation
     printArray(leftOff)
 
-    if dir==1 then
+    if dir==2 then
         turtle.turnLeft()
     end
 
@@ -24,9 +24,9 @@ function restockProcess(ts)
     turtle.turnRight()
     turtle.turnRight()
     ts.moveToVertical(leftOff[2])
-    ts.moveToHorizontal(leftOff[1],leftOff[3])
+    ts.moveToHorizontal({leftOff[1],leftOff[3]})
     
-    if dir==1 then
+    if dir==2 then
         turtle.turnRight()
     end
 end
