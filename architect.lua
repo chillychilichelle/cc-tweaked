@@ -139,7 +139,7 @@ for i = 1, y, 1 do
             end
         elseif nnBlockType ==nil then
             if(ifCurrentSlotIsEmpty())then
-                if(ifInventoryIsEmptyOfBlocks())then
+                if(ifInventoryIsEmpty())then
                     --return and refill
                     restockProcess(ts)
                 else 
