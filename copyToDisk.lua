@@ -13,13 +13,14 @@ function copyFiles(source, target)
     local files = fs.find(source.."*")
     for i = 1, #files, 1 do
         if(fs.isDir(files[i])) then
-            if(files[i]~="rom" and files[i]~=target) then
-                print("Branching to: "..files[i]..'/')
-                copyFiles(files[i]..'/')
+            files[i]=files[i].."/"
+            if(files[i]~="rom/" and files[i]~=target) then
+                print("Branching to: "..files[i])
+                copyFiles(files[i])
             end         
         else
             --print("Copying file: "..files[i])
-            local newName = "disk/"..files[i]
+            local newName = target..files[i]
             if(fs.exists(newName)) then
                 fs.delete(newName)
             end
