@@ -3,6 +3,10 @@ require "turtleUtils"
 print("THIS WILL MINE THE ENTIRE SELECTED AREA")
 print("PLACE IN THE UPMOST BOTTOM-LEFT CORNER")
 print(" ")
+print("Name the result blueprint (Don't include \".txt\"): ")
+local path = "blueprints/"
+local fileName = read()
+fileName= fileName..".txt"
 print("Select X (Rightwards length): ")
 local x =read()
 print("Select Y (Upwards length): ")
@@ -36,7 +40,7 @@ for i = y, 1, -1 do
                 
                 turtle.digDown()
             else
-                mapData[i][j][k]=' '
+                mapData[j][i][k]=' '
             end
             
             turtle.forward()
@@ -59,12 +63,18 @@ for i = y, 1, -1 do
     
 end
 
+local file = fs.open(path..fileName,"w")
+file.write(x.."\n")
+file.write(y.."\n")
+file.write(z.."\n")
+file.write("\n")
 for i = 1, y, 1 do
     for j = z, 1, -1 do
         for k = 1, x, 1 do
-            io.write(mapData[k][i][j])
+            file.write(mapData[k][i][j])
         end
-        print(" ")
+        file.write("\n")
     end
-    print(" ")
+    file.write("\n")
 end
+file.close()
