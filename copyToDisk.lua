@@ -3,12 +3,16 @@
 -- it will copy its parent folders into the subfolders
 function copyFiles(source, target)
     
-    source = source or ""
-    source = source.."/"
+    source = source or "/"
+    if source:sub(#source,#source)~='/' then
+        source = source.."/"
+    end
 
-    target = target or "disk"
-    target = target.."/"
-
+    target = target or "disk/"
+    if target:sub(#target,#target)~='/' then
+        target = target.."/"
+    end
+    
     print("Copying from: "..source.." to "..target)
     local files = fs.find(source.."*")
     for i = 1, #files, 1 do
