@@ -6,8 +6,8 @@ function copyFiles(path)
             print("Branching to: "..path..files[i]..'/')
             copyFiles(path..files[i]..'/')
         else
-            print("Copying file: "..files[i])
-            local newName = "disk"..path.."/"..files[i]
+            --print("Copying file: "..files[i])
+            local newName = "disk/"..files[i]
             if(fs.exists(newName)) then
                 fs.delete(newName)
             end
