@@ -79,10 +79,11 @@ end
 
 file.close()
 
-print("This blueprint requires "..blockCnt.." blocks to construct!")
-print("Contains "..#usedBlocks.." distinct blocks.")
+print("This blueprint requires "..blockCnt.." block(s) to construct!")
+print("Contains "..#usedBlocks.." distinct block(s).")
 turtle.select(1)
 for key, value in pairs(usedBlocks) do
+    print(" ")
     print(key..") Block "..value..": ")
     print("Please insert block into selected slot then press enter...")
         print("(Leave the slot blank if you want to use any block)")

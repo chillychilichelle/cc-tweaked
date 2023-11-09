@@ -15,6 +15,8 @@ print("Select Z (Forwards length): ")
 local z =read()
 
 print("X:  "..x.." Y:  "..y.." Z:  "..z)
+print("Press enter to begin...")
+read()
 
 local mapData ={}
 local blockDictionary ={}
