@@ -1,44 +1,44 @@
 5
 7
 5
-x.x.x
- ... 
-x...X
- ... 
-x.x.x
-
 .XXX.
-Xxxxx
-xxxxX
-xxxxX
-.XxX
-
-.XXX.
-X...x
-x...X
-x...X
+XXXXX
+XXXXX
+XXXXX 
 .XXX
 
 .XXX.
-X...x
-x...X
-x...X
+X...X
+X...X
+X...X
+.X X
+
+.XXX.
+X...X
+X...X
+X...X
+.X X
+
+.XXX.
+X...X
+X...X
+X...X
 .XXX
 
 .XXX.
-X...x
-x...X
-x...X
-.X X
+X...X
+X...X
+X...X
+.XXX
 
 .XXX.
-X...x
-x...X
-x...X
-.X X
+XXXXX
+XXXXX
+XXXXX
+.XXX
 
-.XXX.
-Xxxxx
-xxxxX
-xxxxX
-.XxX
+X.X.X
+ ... 
+X...X
+ ... 
+X.X.X

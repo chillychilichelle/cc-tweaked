@@ -2,24 +2,24 @@
 6
 20
 ....................
-.        xx        .
-.        xx        .
-.        xx        .
-.        xx        .
-.        xx        .
-.        xx        .
-.        xx        .
-.        xx        .
+.        XX        .
+.        XX        .
+.        XX        .
+.        XX        .
+.        XX        .
+.        XX        .
+.        XX        .
+.        XX        .
 .XXXXXXXX..XXXXXXXX.
 .XXXXXXXX..XXXXXXXX.
-.        xx        .
-.        xx        .
-.        xx        .
-.        xx        .
-.        xx        .
-.        xx        .
-.        xx        .
-.        xx        .
+.        XX        .
+.        XX        .
+.        XX        .
+.        XX        .
+.        XX        .
+.        XX        .
+.        XX        .
+.        XX        .
 ....................
 
 .........XX.........

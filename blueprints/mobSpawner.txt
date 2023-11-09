@@ -1,26 +1,26 @@
 20
 29
 20
-xxxx.....xx......xxx
-xxx      ..       xx
-xx       ..        x
-x        ..        .
+XXXX.....XX......XXX
+XXX      ..       XX
+XX       ..        X
+X        ..        .
 .        ..        .
 .        ..        .
 .        ..        .
-.       .xx.       .
-.      .xxxx.      .
-x......xxxxxx......x
-x......xxxxxx......x
-.      .xxxx.      .
-.       .xx.       .
+.       .XX.       .
+.      .XXXX.      .
+X......XXXXXX......X
+X......XXXXXX......X
+.      .XXXX.      .
+.       .XX.       .
 .        ..        .
 .        ..        .
 .        ..        .
 .        ..        .
 .        ..        .
-.        ..        x
-x........xx.......xx
+.        ..        X
+X........XX.......XX
 
 ....................
 .        ..        .
@@ -485,24 +485,24 @@ x........xx.......xx
 ....................
 
 ....................
-.        xx        .
-.        xx        .
-.        xx        .
-.        xx        .
-.        xx        .
-.        xx        .
-.        xx        .
-.        xx        .
+.        XX        .
+.        XX        .
+.        XX        .
+.        XX        .
+.        XX        .
+.        XX        .
+.        XX        .
+.        XX        .
 .XXXXXXXX..XXXXXXXX.
 .XXXXXXXX..XXXXXXXX.
-.        xx        .
-.        xx        .
-.        xx        .
-.        xx        .
-.        xx        .
-.        xx        .
-.        xx        .
-.        xx        .
+.        XX        .
+.        XX        .
+.        XX        .
+.        XX        .
+.        XX        .
+.        XX        .
+.        XX        .
+.        XX        .
 ....................
 
 .........XX.........

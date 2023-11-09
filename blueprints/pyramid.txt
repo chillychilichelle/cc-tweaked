@@ -1,16 +1,16 @@
 5
 3
 5
-xxxxx
-xxxxx
-xxxxx
-xxxxx
-xxxxx
+XXXXX
+XXXXX
+XXXXX
+XXXXX
+XXXXX
 
 .
-.xxx
-.xXx
-.xxx
+.XXX
+.XXX
+.XXX
 .
 
 .

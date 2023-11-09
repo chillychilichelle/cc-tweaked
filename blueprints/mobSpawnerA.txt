@@ -2,8 +2,8 @@
 24
 4
 ....
-.xx.
-.xx.
+.XX.
+.XX.
 ....
 
 .
@@ -11,112 +11,112 @@
 .
 .
 
-.xx
-x  x
-x  x
-.xx 
+.XX
+X  X
+X  X
+.XX 
 
-.xx
-x  x
-x  x
-.xx 
+.XX
+X  X
+X  X
+.XX 
 
-.xx
-x  x
-x  x
-.xx 
+.XX
+X  X
+X  X
+.XX 
 
-.xx
-x  x
-x  x
-.xx 
+.XX
+X  X
+X  X
+.XX 
 
-.xx
-x  x
-x  x
-.xx 
+.XX
+X  X
+X  X
+.XX 
 
-.xx
-x  x
-x  x
-.xx 
+.XX
+X  X
+X  X
+.XX 
 
-.xx
-x  x
-x  x
-.xx 
+.XX
+X  X
+X  X
+.XX 
 
-.xx
-x  x
-x  x
-.xx 
+.XX
+X  X
+X  X
+.XX 
 
-.xx
-x  x
-x  x
-.xx 
+.XX
+X  X
+X  X
+.XX 
 
-.xx
-x  x
-x  x
-.xx 
+.XX
+X  X
+X  X
+.XX 
 
-.xx
-x  x
-x  x
-.xx 
+.XX
+X  X
+X  X
+.XX 
 
-.xx
-x  x
-x  x
-.xx 
+.XX
+X  X
+X  X
+.XX 
 
-.xx
-x  x
-x  x
-.xx 
+.XX
+X  X
+X  X
+.XX 
 
-.xx
-x  x
-x  x
-.xx 
+.XX
+X  X
+X  X
+.XX 
 
-.xx
-x  x
-x  x
-.xx 
+.XX
+X  X
+X  X
+.XX 
 
-.xx
-x  x
-x  x
-.xx 
+.XX
+X  X
+X  X
+.XX 
 
-.xx
-x  x
-x  x
-.xx 
+.XX
+X  X
+X  X
+.XX 
 
-.xx
-x  x
-x  x
-.xx 
+.XX
+X  X
+X  X
+.XX 
 
-.xx
-x  x
-x  x
-.xx 
+.XX
+X  X
+X  X
+.XX 
 
-.xx
-x  x
-x  x
-.xx 
+.XX
+X  X
+X  X
+.XX 
 
-.xx
-x  x
-x  x
-.xx 
+.XX
+X  X
+X  X
+.XX 
 
-.xx
-x  x
-x  x
-.xx 
+.XX
+X  X
+X  X
+.XX 
