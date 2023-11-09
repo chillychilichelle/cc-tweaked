@@ -50,6 +50,7 @@ print("X:  "..x.." Y:  "..y.." Z:  "..z)
 
 local mapData ={}
 local blockCnt=0
+local blockDictionary ={}
 
 for i = 1, y, 1 do
     local mapDataZCnt = 1
