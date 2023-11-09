@@ -207,11 +207,23 @@ end
 
 
 --TODO doesnt check if slot is blocks
-function ifInventoryIsEmptyOfBlocks()
+function ifInventoryIsEmpty()
     local items = getInventory()
     for i = 1, 16, 1 do
         local item = items[i]
         if item ~= nil then    
+            return false
+        end
+    end
+    return true
+end
+
+
+function ifInventoryIsEmptyOfType(name)
+    local items = getInventory()
+    for i = 1, 16, 1 do
+        local item = items[i]
+        if item ~= nil and item.name==name then    
             return false
         end
     end
