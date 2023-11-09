@@ -12,6 +12,8 @@ function copyFiles(source, target)
     if target:sub(#target,#target)~='/' then
         target = target.."/"
     end
+
+    if(source == target) then return end;
     
     print("Copying from: "..source.." to "..target)
     local files = fs.find(source.."*")
@@ -35,5 +37,5 @@ function copyFiles(source, target)
 end
 
 local args ={...}
-copyFiles(args[0], args[1])
+copyFiles(args[1], args[2])
 
