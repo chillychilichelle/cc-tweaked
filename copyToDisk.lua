@@ -1,14 +1,12 @@
-local args ={...}
-local path = args[0] or "/"
-copyFiles(path)
-
 function copyFiles(path)
+    print("Copying: "..path)
     local files = fs.find(path.."*")
     for i = 1, #files, 1 do
-        print(files[i])
         if(fs.isDir(files[i])) then
+            print("Branching to: "..path)
             copyFiles(path..files[i])
         else
+            print("Copying file: "..files[i])
             local newName = "disk"..path.."/"..files[i]
             if(fs.exists(newName)) then
                 fs.delete(newName)
@@ -17,3 +15,8 @@ function copyFiles(path)
         end
     end
 end
+
+local args ={...}
+local path = args[0] or "/"
+copyFiles(path)
+
