@@ -60,7 +60,7 @@ for i = 1, y, 1 do
         local str = file.readLine()
         for k = 1, #str, 1 do
             local currentChar = str:sub(k,k)
-            if blockDictionary[currentChar]==nil then
+            if shouldPlaceBlock(currentChar) and blockDictionary[currentChar]==nil then
                 blockDictionary[currentChar]="";
                 table.insert(usedBlocks,currentChar)
             end
