@@ -3,8 +3,8 @@ function copyFiles(path)
     local files = fs.find(path.."*")
     for i = 1, #files, 1 do
         if(fs.isDir(files[i])) then
-            print("Branching to: "..path)
-            copyFiles(path..files[i])
+            print("Branching to: "..path..files[i]..'/')
+            copyFiles(path..files[i]..'/')
         else
             print("Copying file: "..files[i])
             local newName = "disk"..path.."/"..files[i]
