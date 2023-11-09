@@ -179,7 +179,7 @@ function nextItemSlotOfType(name)
     for i = 1, 16, 1 do
         cur = (cur%16)+1
         local item =inventory[cur]
-        if item.name==name then
+        if  item~=nil and item.name==name then
             turtle.select(cur)
             return true
         end

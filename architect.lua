@@ -131,7 +131,7 @@ for i = 1, y, 1 do
         
         local nnBlockType = blockDictionary[nn.char];
         if(ifCurrentSlotIsOfType(nnBlockType))then
-            if(ifInventoryIsEmptyOfBlocks())then
+            if(not ifInventoryIsEmptyOfBlocks())then
                 --return and refill
                 restockProcess(ts)
             else 
