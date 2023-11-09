@@ -60,8 +60,8 @@ for i = 1, y, 1 do
         local str = file.readLine()
         for k = 1, #str, 1 do
             local currentChar = str:sub(k,k)
-            if blockDictionary.currentChar==nil then
-                blockDictionary.currentChar="";
+            if blockDictionary[currentChar]==nil then
+                blockDictionary[currentChar]="";
                 table.insert(usedBlocks,currentChar)
             end
             if(shouldPlaceBlock(currentChar)) then
@@ -79,18 +79,15 @@ end
 file.close()
 
 print("This blueprint requires "..blockCnt.." blocks to construct!")
-
 print("Contains "..#usedBlocks.." distinct blocks.")
-print("Please insert the block you would like to use into the selected slot.")
-print("Then press 'Enter' to confirm.")
-print("(Leave the slot blank if you want to use any block)")
 
 for key, value in pairs(usedBlocks) do
     print(key..") Block "..value..": ")
-    print("Please insert block then press enter...")
+    print("Please insert block into selected slot then press enter...")
+        print("(Leave the slot blank if you want to use any block)")
     read()
     local chosenItem = turtle.getItemDetail()
-    blockDictionary[value]=chosenItem;
+    blockDictionary[value]=chosenItem.name;
 end
 
 for key, value in pairs(blockDictionary) do
