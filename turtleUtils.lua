@@ -159,9 +159,6 @@ function nextItemSlot()
 end
 
 function nextFullItemSlot()
-    if ifInventoryIsEmptyOfBlocks() then
-        return false
-    end
     
     local inventory = getInventory()
     local cur = turtle.getSelectedSlot()
@@ -175,9 +172,29 @@ function nextFullItemSlot()
     end
     return false
 end
+function nextItemSlotOfType(name)
+    
+    local inventory = getInventory()
+    local cur = turtle.getSelectedSlot()
+    for i = 1, 16, 1 do
+        cur = (cur%16)+1
+        local item =inventory[cur]
+        if item.name==name then
+            turtle.select(cur)
+            return true
+        end
+    end
+    return false
+end
 
 function ifCurrentSlotIsEmpty()
     return turtle.getItemCount() <=0
+end
+function ifCurrentSlotIsOfType(name)
+    if turtle.getItemDetail()==nil then
+        return false
+    end
+    return turtle.getItemDetail().name==name
 end
 
 function getInventory()
@@ -192,13 +209,9 @@ end
 --TODO doesnt check if slot is blocks
 function ifInventoryIsEmptyOfBlocks()
     local items = getInventory()
-
     for i = 1, 16, 1 do
-        local cur = items[i]
-        print(i..": ")
-        if cur ~= nil then    
-            print("Item name: ", cur.name)
-            print("Item count: ", cur.count)
+        local item = items[i]
+        if item ~= nil then    
             return false
         end
     end

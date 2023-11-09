@@ -68,6 +68,7 @@ for i = 1, y, 1 do
                 mapData[i][mapDataZCnt] = {}
                 mapData[i][mapDataZCnt][1]=k
                 mapData[i][mapDataZCnt][2]=j
+                mapData[i][mapDataZCnt]["char"]=currentChar
                 mapDataZCnt = mapDataZCnt + 1
                 blockCnt = blockCnt + 1
             end
@@ -87,16 +88,18 @@ for key, value in pairs(usedBlocks) do
         print("(Leave the slot blank if you want to use any block)")
     read()
     local chosenItem = turtle.getItemDetail()
-    blockDictionary[value]=chosenItem.name;
+    if(chosenItem==nil) then
+        blockDictionary[value]=nil
+    else
+        blockDictionary[value]=chosenItem.name
+    end
+    
 end
 
 for key, value in pairs(blockDictionary) do
     print(key.." - "..value)
 end
 
-if true then
-    return
-end
 
 local startingCoords = {1, 1, 1}
 local ts = TurtleState(startingCoords,1)
@@ -114,7 +117,7 @@ for i = 1, y, 1 do
 
         for j=1, #layersPoints, 1 do
             local newCoords= layersPoints[j]
-            local newDist = manhattan(ts.getXZ(), newCoords)
+            local newDist = manhattan(ts.getXZ(), {newCoords[1],newCoords[2]} )
             --print("Checking "..newCoords[1]..", "..newCoords[2])
             if (newDist <nnDist) then
                 nnInd = j
@@ -124,23 +127,19 @@ for i = 1, y, 1 do
             end
             if(nnDist<=1) then break end
         end 
-
         table.remove(layersPoints,nnInd)
-
-        --print("Moving from "..currentCoords[1]..", "..currentCoords[2].. " to "..nn[1]..", "..nn[2])
-        --goToCoords(currentCoords,nn)
-        ts.moveToHorizontal(nn)
-
         
-        if(ifCurrentSlotIsEmpty())then
+        local nnBlockType = blockDictionary[nn.char];
+        if(ifCurrentSlotIsOfType(nnBlockType))then
             if(ifInventoryIsEmptyOfBlocks())then
                 --return and refill
                 restockProcess(ts)
             else 
-                nextFullItemSlot()
+                nextItemSlotOfType(nnBlockType)
             end
         end
 
+        ts.moveToHorizontal({nn[1],nn[2]})
         if(turtle.detectDown())then
             turtle.digDown()
         end
