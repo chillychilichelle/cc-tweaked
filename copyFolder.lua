@@ -1,4 +1,6 @@
---TODO this only works when target is the first folder
+-- Defaults to source = "/" and target of "disk/"
+
+-- TODO this only works when target is the first folder
 -- meaning it works when copying to disk/ or disk2/ but not to disk/subfolder/
 -- it will copy its parent folders into the subfolders
 function copyFiles(source, target)
