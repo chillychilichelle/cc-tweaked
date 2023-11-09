@@ -81,7 +81,7 @@ file.close()
 
 print("This blueprint requires "..blockCnt.." blocks to construct!")
 print("Contains "..#usedBlocks.." distinct blocks.")
-
+turtle.select(1)
 for key, value in pairs(usedBlocks) do
     print(key..") Block "..value..": ")
     print("Please insert block into selected slot then press enter...")
@@ -93,7 +93,7 @@ for key, value in pairs(usedBlocks) do
     else
         blockDictionary[value]=chosenItem.name
     end
-    
+    nextItemSlot()
 end
 
 for key, value in pairs(blockDictionary) do
