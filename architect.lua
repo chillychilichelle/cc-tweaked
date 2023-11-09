@@ -51,6 +51,7 @@ print("X:  "..x.." Y:  "..y.." Z:  "..z)
 local mapData ={}
 local blockCnt=0
 local blockDictionary ={}
+local usedBlocks ={}
 
 for i = 1, y, 1 do
     local mapDataZCnt = 1
@@ -59,6 +60,10 @@ for i = 1, y, 1 do
         local str = file.readLine()
         for k = 1, #str, 1 do
             local currentChar = str:sub(k,k)
+            if blockDictionary.currentChar==nil then
+                blockDictionary.currentChar="";
+                table.insert(usedBlocks,currentChar)
+            end
             if(shouldPlaceBlock(currentChar)) then
                 mapData[i][mapDataZCnt] = {}
                 mapData[i][mapDataZCnt][1]=k
@@ -74,6 +79,27 @@ end
 file.close()
 
 print("This blueprint requires "..blockCnt.." blocks to construct!")
+
+print("Contains "..#usedBlocks.." distinct blocks.")
+print("Please insert the block you would like to use into the selected slot.")
+print("Then press 'Enter' to confirm.")
+print("(Leave the slot blank if you want to use any block)")
+
+for key, value in pairs(usedBlocks) do
+    print(key..") Block "..value..": ")
+    print("Please insert block then press enter...")
+    read()
+    local chosenItem = turtle.getItemDetail()
+    blockDictionary[value]=chosenItem;
+end
+
+for key, value in pairs(blockDictionary) do
+    print(key.." - "..value)
+end
+
+if true then
+    return
+end
 
 local startingCoords = {1, 1, 1}
 local ts = TurtleState(startingCoords,1)
