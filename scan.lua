@@ -40,7 +40,7 @@ for i = y, 1, -1 do
                 
                 turtle.digDown()
             else
-                mapData[j][i][k]=' '
+                mapData[j][i][k]='.'
             end
             
             turtle.forward()
@@ -67,7 +67,6 @@ local file = fs.open(path..fileName,"w")
 file.write(x.."\n")
 file.write(y.."\n")
 file.write(z.."\n")
-file.write("\n")
 for i = 1, y, 1 do
     for j = z, 1, -1 do
         for k = 1, x, 1 do
