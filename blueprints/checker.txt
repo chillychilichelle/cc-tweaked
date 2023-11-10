@@ -11,5 +11,5 @@
 1122
 1122
 
-49 - minecraft:chiseled_polished_blackstone
-50 - minecraft:stripped_crimson_hyphae
+2 - minecraft:red_wool
+1 - minecraft:white_wool
