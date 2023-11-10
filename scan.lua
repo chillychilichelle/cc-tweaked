@@ -7,6 +7,12 @@ print("Name the result blueprint (Don't include \".txt\"): ")
 local path = "blueprints/"
 local fileName = read()
 fileName= fileName..".txt"
+
+if(fs.exists(path..fileName)) then
+    print("Overwriting data...")
+    fs.delete(path..fileName)
+end
+
 print("Select X (Rightwards length): ")
 local x =read()
 print("Select Y (Upwards length): ")
