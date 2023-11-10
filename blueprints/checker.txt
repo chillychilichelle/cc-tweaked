@@ -1,14 +1,15 @@
 4
 2
 4
-0011
-0011
-1100
-1100
+1122
+1122
+2211
+2211
 
-1100
-1100
-0011
-0011
+2211
+2211
+1122
+1122
 
-this is a comment that should not be read
+49 - minecraft:chiseled_polished_blackstone
+50 - minecraft:stripped_crimson_hyphae

@@ -35,10 +35,10 @@ for i = y, 1, -1 do
             local success, data = turtle.inspectDown()
             if(success)then
                 if(blockDictionary[data.name]==nil)then
-                    blockDictionary[data.name]=current;
+                    blockDictionary[data.name]=string.char(current);
                     current = current + 1
                 end
-                mapData[j][i][k]=string.char(blockDictionary[data.name])
+                mapData[j][i][k]=blockDictionary[data.name]
                 
                 turtle.digDown()
             else
