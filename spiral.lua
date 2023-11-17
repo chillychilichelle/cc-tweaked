@@ -8,13 +8,13 @@ while (turtle.detectDown() and turtle.getFuelLevel()>half) do
     turtle.down()
     turtle.dig()
     turtle.forward()
-    turtle.turnLeft()
+    turtle.turnRight()
     count = count + 1
 end
 
 for i = count,1,-1
 do
-    turtle.turnRight()
+    turtle.turnLeft()
     turtle.back()
     turtle.up()
 end
