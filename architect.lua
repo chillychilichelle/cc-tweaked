@@ -1,3 +1,5 @@
+package.path = package.path .. ";../?.lua"
+
 require "turtleUtils"
 require "utils"
 
