@@ -20,12 +20,33 @@ function deepCopyArray(arr)
     return copy
 end
 
-function printArray(arr)
+function printArray(data)
   for key, value in pairs(data) do
     if(type(value)=="table")then
       printArray(value)
     else
-      print(key..": "..value)
+      print(key..": "..tostring(value))
     end
   end
+end
+
+function printArrayToFile(data)
+  local fileName= "inspect.txt"
+  if(fs.exists(fileName)) then
+      fs.delete(fileName)
+  end
+  local file = fs.open(fileName,"w")
+  
+  function f(_data)
+    for key, value in pairs(_data) do
+      if(type(value)=="table")then
+        f(value)
+      else
+        file.write(key..": "..tostring(value))
+      end
+    end
+    
+  end
+  f(data)
+  file.close()
 end
