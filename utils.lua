@@ -21,7 +21,11 @@ function deepCopyArray(arr)
 end
 
 function printArray(arr)
-  for i = 1, #arr, 1 do
-    print("["..i.."]: "..arr[i])
+  for key, value in pairs(data) do
+    if(type(value)=="table")then
+      printArray(value)
+    else
+      print(key..": "..value)
+    end
   end
 end
