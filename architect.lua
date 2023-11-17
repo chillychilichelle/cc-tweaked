@@ -131,16 +131,16 @@ for i = 1, y, 1 do
         table.remove(layersPoints,nnInd)
         
         local nnBlockType = blockDictionary[nn.char];
-        if(nnBlockType ~=nil and  not ifCurrentSlotIsOfType(nnBlockType))then
-            if(ifInventoryIsEmpty())then
+        if(nnBlockType ~=nil and  not isCurrentSlotOfType(nnBlockType))then
+            if(isInventoryEmpty())then
                 --return and refill
                 restockProcess(ts)
             else 
                 nextItemSlotOfType(nnBlockType)
             end
         elseif nnBlockType ==nil then
-            if(ifCurrentSlotIsEmpty())then
-                if(ifInventoryIsEmpty())then
+            if(isCurrentSlotEmpty())then
+                if(isInventoryEmpty())then
                     --return and refill
                     restockProcess(ts)
                 else 

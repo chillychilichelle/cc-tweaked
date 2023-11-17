@@ -187,10 +187,10 @@ function nextItemSlotOfType(name)
     return false
 end
 
-function ifCurrentSlotIsEmpty()
+function isCurrentSlotEmpty()
     return turtle.getItemCount() <=0
 end
-function ifCurrentSlotIsOfType(name)
+function isCurrentSlotOfType(name)
     if turtle.getItemDetail()==nil then
         return false
     end
@@ -207,7 +207,7 @@ end
 
 
 --TODO doesnt check if slot is blocks
-function ifInventoryIsEmpty()
+function isInventoryEmpty()
     local items = getInventory()
     for i = 1, 16, 1 do
         local item = items[i]
@@ -219,8 +219,14 @@ function ifInventoryIsEmpty()
 end
 
 
-function ifInventoryIsEmptyOfType(name)
-    local items = getInventory()
+function isInventoryEmptyOfType(name, targetInventory)
+    local items;
+    if targetInventory~=nil then
+        items =targetInventory
+    else
+        items = getInventory()
+    end
+    
     for i = 1, 16, 1 do
         local item = items[i]
         if item ~= nil and item.name==name then    

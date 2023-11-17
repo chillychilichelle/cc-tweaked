@@ -31,7 +31,7 @@ file.close()
 for i = 1, z, 1 do
     for j = 1, x, 1 do
         for k = y, 1, -1 do
-            if(ifCurrentSlotIsEmpty())then
+            if(isCurrentSlotEmpty())then
                 nextItemSlot()
             end
             if(j<=#mapData[i][k])then
