@@ -30,8 +30,7 @@ function printArray(data)
   end
 end
 
-function printArrayToFile(data)
-  local fileName= "inspect.txt"
+function printArrayToFile(data, fileName)
   if(fs.exists(fileName)) then
       fs.delete(fileName)
   end
