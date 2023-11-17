@@ -1,3 +1,4 @@
+package.path = package.path .. ";../?.lua"
 require "turtleUtils"
 
 local lapiz ="minecraft:lapis_lazuli"
