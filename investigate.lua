@@ -1,5 +1,6 @@
+require "utils"
 local item = turtle.getItemDetail()
 
-for key, value in pairs(item) do
-    print(key..": "..value)
+if(item ~=nil) then
+    printArrayToFile(item,"data.txt")
 end
