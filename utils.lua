@@ -42,7 +42,7 @@ function printArrayToFile(data)
       if(type(value)=="table")then
         f(value)
       else
-        file.write(key..": "..tostring(value))
+        file.write(key..": "..tostring(value).."\n")
       end
     end
     
