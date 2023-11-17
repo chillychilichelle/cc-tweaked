@@ -1,16 +1,17 @@
 package.path = package.path .. ";../?.lua"
 require "turtleUtils"
 
-local lapiz ="minecraft:lapis_lazuli"
-local source ="ars_nouveau:source_gem"
-local chamber= peripheral.find("inventory")
+turtle.select(1)
 
-if(chamber==nil) then return end
+local curItem=turtle.getItemDetail()
+local chamber= peripheral.find("inventory")
+if(chamber==nil or curItem == nil) then return end
+local original = curItem.name
 
 turtle.suck()
-while nextItemSlotOfType(lapiz) do
+while nextItemSlotOfType(original) do
     turtle.drop()
-    while isInventoryEmptyOfType(source,chamber.list()) do
+    while not isInventoryEmptyOfType(original,chamber.list()) do
         sleep(1)
     end
     turtle.suck()
