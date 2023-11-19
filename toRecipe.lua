@@ -1,17 +1,19 @@
-print("Name the result recipe (Don't include \".txt\"): ")
-local path = "recipes/"
+require("utils")
+print("Name the resulting recipe file: ")
 local fileName = read()
-fileName= fileName..".txt"
 
-if(fs.exists(path..fileName)) then
+fileName = prefix(fileName,"recipes/")
+fileName = suffix(fileName,".txt")
+
+if(fs.exists(fileName)) then
     print("Overwriting data...")
-    fs.delete(path..fileName)
+    fs.delete(fileName)
 end
 
 print("Press enter when all items are in place...")
 read()
 
-local file = fs.open(path..fileName,"w")
+local file = fs.open(fileName,"w")
 for x = 1, 3, 1 do
     for y = 1, 3, 1 do
         local slot = y+(x-1)*4;
@@ -21,6 +23,5 @@ for x = 1, 3, 1 do
         end
     end
 end
-
 
 file.close()
