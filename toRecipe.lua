@@ -19,7 +19,9 @@ for x = 1, 3, 1 do
         local slot = y+(x-1)*4;
         local item =turtle.getItemDetail(slot)
         if(item~=nil)then
-            file.write(slot.."/"..item.name.."\n")
+            local s = slot.."/"..item.name.."\n"
+            print(s)
+            file.write(s)
         end
     end
 end
