@@ -86,8 +86,7 @@ for i = 1, y, 1 do
 end
 
 for key, value in pairs(blockDictionary) do
-    file.write(value.." - "..key)
-    file.write("\n")
+    file.write(value.."/"..key.."\n")
 end
 
 file.close()
