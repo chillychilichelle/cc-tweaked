@@ -49,3 +49,19 @@ function printArrayToFile(data, fileName)
   f(data)
   file.close()
 end
+
+function prefix(word, prefix)
+  local s = word:sub(#prefix)
+  if s==prefix then
+    return word
+  end
+  return prefix..word
+end
+
+function suffix(word, suffix)
+  local s = word:sub(-#suffix)
+  if s==suffix then
+    return word
+  end
+  return suffix..word
+end
