@@ -51,7 +51,7 @@ function printArrayToFile(data, fileName)
 end
 
 function prefix(word, prefix)
-  local s = word:sub(#prefix)
+  local s = word:sub(1,#prefix)
   if s==prefix then
     return word
   end
@@ -63,5 +63,5 @@ function suffix(word, suffix)
   if s==suffix then
     return word
   end
-  return suffix..word
+  return word..suffix
 end
