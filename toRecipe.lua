@@ -20,7 +20,6 @@ for x = 1, 3, 1 do
             file.write(slot.."/"..item.name.."\n")
         end
     end
-    file.write("\n")    
 end
 
 
