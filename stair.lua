@@ -15,9 +15,11 @@ local starting = turtle.getFuelLevel()
 local half = starting/2
 local count = 0
 local bedrock = false
-while (turtle.detectDown() and turtle.getFuelLevel()>half) do
+while (turtle.getFuelLevel()>half) do
     turtle.dig()
-    if not turtle.digDown() then
+    local success, msg = turtle.digDown()
+    if not success then
+        print(msg);
         break;
     end
     
@@ -25,7 +27,6 @@ while (turtle.detectDown() and turtle.getFuelLevel()>half) do
     checkFloor()
     turtle.dig()
     turtle.forward()
-    checkFloor()
     count = count+1
 end
 
