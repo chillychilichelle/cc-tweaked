@@ -15,11 +15,13 @@ function restockProcess(ts)
         turtle.turnLeft()
     end
 
-    ts.moveToHorizontal({0,0})
+    ts.moveToHorizontal({0,leftOff[3]})
     ts.moveToVertical(1)
+    ts.moveToHorizontal({0,0})
     while turtle.suckUp() do
        print("Suck...") 
     end
+    ts.moveToHorizontal({0,leftOff[3]})
     ts.moveToVertical(leftOff[2])
     ts.moveToHorizontal({leftOff[1],leftOff[3]})
     
@@ -165,5 +167,6 @@ for i = 1, y, 1 do
 end
 
 --return to origin
-ts.moveToHorizontal({0,0})
+ts.moveToHorizontal({0,ts.coords[3]})
 ts.moveToVertical(1)
+ts.moveToHorizontal({0,0})
