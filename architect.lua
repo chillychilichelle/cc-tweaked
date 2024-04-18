@@ -49,6 +49,9 @@ local y = tonumber(file.readLine())
 local z = tonumber(file.readLine())
 print("X:  "..x.." Y:  "..y.." Z:  "..z)
 
+--put readline here for gap
+file.readLine()
+
 local mapData ={}
 local blockCnt=0
 local blockDictionary ={}
