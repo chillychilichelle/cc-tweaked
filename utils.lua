@@ -36,18 +36,30 @@ function printArrayToFile(data, fileName)
   end
   local file = fs.open(fileName,"w")
   
-  function f(_data)
+  function f(_data, recursionNum)
     for key, value in pairs(_data) do
       if(type(value)=="table")then
-        f(value)
+        f(value, recursionNum+1)
       else
+        for i = 1, recursionNum, 1 do
+          file.write(" ")
+        end
         file.write(key.."/"..tostring(value).."\n")
       end
     end
     
   end
-  f(data)
+  f(data,0)
   file.close()
+end
+
+function writeToFile(data, fileName)
+  if(fs.exists(fileName)) then
+      fs.delete(fileName);
+  end
+  local file = fs.open(fileName,"w");
+  file.write(data);
+  file.close();
 end
 
 function prefix(word, prefix)
