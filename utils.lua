@@ -20,10 +20,17 @@ function deepCopyArray(arr)
     return copy
 end
 
-function printArray(data)
+function printArray(data, recursionNum)
+  if recursionNum == nil then
+    recursionNum=0;
+  end
   for key, value in pairs(data) do
     if(type(value)=="table")then
-      printArray(value)
+      for i = 1, recursionNum, 1 do
+        print(" ")
+      end
+      print(key)
+      printArray(value,recursionNum+1);
     else
       print(key..": "..tostring(value))
     end
@@ -39,6 +46,7 @@ function printArrayToFile(data, fileName)
   function f(_data, recursionNum)
     for key, value in pairs(_data) do
       if(type(value)=="table")then
+        file.write(key.."/\n")
         f(value, recursionNum+1)
       else
         for i = 1, recursionNum, 1 do
