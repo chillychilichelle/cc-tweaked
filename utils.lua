@@ -26,12 +26,11 @@ function printArray(data, recursionNum)
   end
   for key, value in pairs(data) do
     if(type(value)=="table")then
-      for i = 1, recursionNum, 1 do
-        print(" ")
-      end
-      print(key)
+      for i = 1, recursionNum, 1 do print(" ") end;
+      print(key);
       printArray(value,recursionNum+1);
     else
+      for i = 1, recursionNum, 1 do print(" ") end;
       print(key..": "..tostring(value))
     end
   end
@@ -46,13 +45,12 @@ function printArrayToFile(data, fileName)
   function f(_data, recursionNum)
     for key, value in pairs(_data) do
       if(type(value)=="table")then
+        for i = 1, recursionNum, 1 do file.write(" ") end;
         file.write(key.."/\n")
         f(value, recursionNum+1)
       else
-        for i = 1, recursionNum, 1 do
-          file.write(" ")
-        end
-        file.write(key.."/"..tostring(value).."\n")
+        for i = 1, recursionNum, 1 do file.write(" ") end;
+        file.write(key.."/"..tostring(value).."\n");
       end
     end
     
