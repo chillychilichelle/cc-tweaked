@@ -1,6 +1,15 @@
 package.path = package.path .. ";../?.lua"
 require "turtleUtils"
 
+
+function checkFloor()
+    if not turtle.detectDown() then
+        nextItemSlotOfType("minecraft:cobblestone")
+        turtle.placeDown()
+    end
+end
+
+
 turtle.refuel()
 local starting = turtle.getFuelLevel()
 local half = starting/2
@@ -26,10 +35,3 @@ do
     turtle.up()
 end
 
-
-function checkFloor()
-    if not turtle.detectDown() then
-        nextItemSlotOfType("minecraft:cobblestone")
-        turtle.placeDown()
-    end
-end
