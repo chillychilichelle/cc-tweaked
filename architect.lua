@@ -7,9 +7,9 @@ function shouldPlaceBlock(currentChar)
 end
 
 function restockProcess(ts)
+    print("Restocking...")
     local leftOff =deepCopyArray(ts.coords)
     local dir =ts.orientation
-    printArray(leftOff)
 
     if dir==2 then
         turtle.turnLeft()
@@ -137,13 +137,10 @@ for i = 1, y, 1 do
         table.remove(layersPoints,nnInd)
         
         local nnBlockType = blockDictionary[nn.char];
-        if(nnBlockType ~=nil and  not isCurrentSlotOfType(nnBlockType))then
-            if(isInventoryEmpty())then
-                --return and refill
-                restockProcess(ts)
-            else 
-                nextItemSlotOfType(nnBlockType)
-            end
+        if(nnBlockType ~=nil and  not isCurrentSlotOfType(nnBlockType) and not nextItemSlotOfType(nnBlockType))then
+            --return and refill
+            restockProcess(ts)
+
         elseif nnBlockType ==nil then
             if(isCurrentSlotEmpty())then
                 if(isInventoryEmpty())then
