@@ -10,5 +10,12 @@ local result, msg = scanner.scan(5);
 if result==nil then
     print("Error: "..msg);
 else
-    printArrayToFile(result,"geoOutput.txt");
+    local resultStr = "";
+    
+    for key, value in pairs(data) do
+        resultStr=resultStr..value[name].."/\n";
+        resultStr=resultStr.." "..value[x]..","..value[y]..","..value[z].."\n";
+            
+  end
+    writeToFile(resultStr,"geoOutput.txt");
 end

@@ -27,11 +27,11 @@ function printArray(data, recursionNum)
   for key, value in pairs(data) do
     if(type(value)=="table")then
       for i = 1, recursionNum, 1 do print(" ") end;
-      print(key);
+      print(key.."/");
       printArray(value,recursionNum+1);
     else
       for i = 1, recursionNum, 1 do print(" ") end;
-      print(key..": "..tostring(value))
+      print(key.."/ "..tostring(value))
     end
   end
 end
