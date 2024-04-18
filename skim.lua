@@ -7,6 +7,7 @@ if( not isCurrentSlotOfType("minecraft:bucket")) then
 end
 
 local count =0;
+local oriLevel=turtle.getFuelLevel();
 
 while turtle.getFuelLevel() < turtle.getFuelLimit() do
     local s=turtle.forward();
@@ -20,3 +21,12 @@ end
 for i = 1, count do
     turtle.back();
 end
+
+--for safety
+for i = 1, 3 do
+    turtle.back();
+end
+
+print("Original fuel level: "..oriLevel);
+print("Current fuel level:  "..turtle.getFuelLevel());
+print("Maximum fuel level:  "..turtle.getFuelLimit());
