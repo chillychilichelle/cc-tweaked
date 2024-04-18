@@ -8,7 +8,7 @@ end
 
 function restockProcess(ts)
     print("Restocking...")
-    local leftOff =deepCopyArray(ts.coords)
+    local leftOff =deepCopyTable(ts.coords)
     local dir =ts.orientation
 
     if dir==2 then
