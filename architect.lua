@@ -163,3 +163,7 @@ for i = 1, y, 1 do
     ts.moveUp(1)
     
 end
+
+--return to origin
+ts.moveToHorizontal({0,0})
+ts.moveToVertical(1)
