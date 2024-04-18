@@ -18,7 +18,7 @@ local bedrock = false
 while (turtle.getFuelLevel()>half) do
     turtle.dig()
     local success, msg = turtle.digDown()
-    if not success then
+    if not success and msg == "Cannot break unbreakable block" then
         print(msg);
         break;
     end
