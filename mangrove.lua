@@ -33,14 +33,7 @@ end
 for i = 1, scanRadius do
     turtle.up()
 end
-local ts =new TurtleState()
 
-ts.rotateTo(3);
-ts.rotateTo(1);
-ts.rotateTo(0);
-ts.rotateTo(2);
-ts.rotateTo(2);
-ts.rotateTo(3);
-ts.rotateTo(0);
-ts.rotateTo(1);
-ts.rotateTo(2);
+local ts = TurtleState()
+ts.rotationLock=false;
+ts.moveToHorizontal({4,-4})
