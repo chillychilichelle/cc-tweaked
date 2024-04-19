@@ -16,10 +16,10 @@ function TurtleState(_coords, _orientation)
     self.rotationLock = false;
     self.destructionLock = false;
 
-    -- 0 FORWARD
-    -- 1 RIGHT
-    -- 2 BACK
-    -- 3 LEFT
+    -- 0 FORWARD    -Z
+    -- 1 RIGHT      +X
+    -- 2 BACK       +Z
+    -- 3 LEFT       -X
     self.orientation = _orientation
 
     
@@ -53,11 +53,11 @@ function TurtleState(_coords, _orientation)
             end
             if turtle.forward() then
                 if self.orientation == 0 then
-                    self.coords[3] = self.coords[3] + 1
+                    self.coords[3] = self.coords[3] - 1
                 elseif self.orientation == 1 then
                     self.coords[1] = self.coords[1] + 1
                 elseif self.orientation == 2 then
-                    self.coords[3] = self.coords[3] - 1
+                    self.coords[3] = self.coords[3] + 1
                 elseif self.orientation == 3 then
                     self.coords[1] = self.coords[1] - 1
                 end
@@ -122,6 +122,7 @@ function TurtleState(_coords, _orientation)
         self.orientation = dirNum;
     end
 
+    --TODO: when using full control, forward is -Z, in restrained, forward is +Z. Needs regularizing, possibly when replacing deprecated functions
     --TODO: assumes will never be blocked
     --TODO: assumes will never be in 2 or 3
     function self.moveToHorizontal(target)
@@ -141,9 +142,9 @@ function TurtleState(_coords, _orientation)
             self.moveForward(math.abs(xDif))
 
             local zDif = z2 - z1
-            if (zDif > 0) then
+            if (zDif < 0) then
                 self.rotateTo(0)
-            elseif (zDif < 0) then
+            elseif (zDif > 0) then
                 self.rotateTo(2)
             end
             self.moveForward(math.abs(zDif))
