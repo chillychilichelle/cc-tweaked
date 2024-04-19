@@ -3,8 +3,10 @@ require "turtleUtils";
 
 local scanner =peripheral.wrap("right");
 local scanRadius = 8;
-local result, msg = scanner.scan(scanRadius);
 local size =2*scanRadius +1;
+
+
+local result, msg = scanner.scan(scanRadius);
 
 if result==nil then
     print("Error: "..msg);
@@ -28,3 +30,17 @@ for key, value in pairs(result) do
     table[x][y][z]=name;
 end
 
+for i = 1, scanRadius do
+    turtle.up()
+end
+local ts =new TurtleState()
+
+ts.rotateTo(3);
+ts.rotateTo(1);
+ts.rotateTo(0);
+ts.rotateTo(2);
+ts.rotateTo(2);
+ts.rotateTo(3);
+ts.rotateTo(0);
+ts.rotateTo(1);
+ts.rotateTo(2);

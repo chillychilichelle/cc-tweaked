@@ -3,23 +3,35 @@ function TurtleState(_coords, _orientation)
     ORIGIN = {0,0,0}
     local self = {}
     if _coords == nil then _coords = {0,0,0} end
-    if _orientation == nil then _orientation = 1 end
+    if _orientation == nil then _orientation = 0 end
 
     self.coords = {}
     self.coords[1] = _coords[1]
     self.coords[2] = _coords[2]
     self.coords[3] = _coords[3]
 
-    self.destroyPerms = true
+    self.destructionLock = true;
+    self.rotationLock = true;
 
-    -- 1 FORWARD
-    -- 2 RIGHT
-    -- 3 BACK
-    -- 4 LEFT
+    -- 0 FORWARD
+    -- 1 RIGHT
+    -- 2 BACK
+    -- 3 LEFT
     self.orientation = _orientation
 
     --TODO: assumes will never be blocked
+    --TODO: assumes will never be in 2 or 3
     function self.moveToHorizontal(target)
+
+        function self.moveToHorizontalFullTurn(target)
+            
+        end
+
+        if(self.rotationLock == false)then
+            self.moveToHorizontalFullTurn(target)
+            return;
+        end
+
         local x1 = self.coords[1]
         local z1 = self.coords[3]
     
@@ -28,15 +40,15 @@ function TurtleState(_coords, _orientation)
         
         local xDif = x2-x1
         if(xDif > 0) then
-            if(self.orientation~=2) then 
+            if(self.orientation~=1) then 
                 turtle.turnRight()
-                self.orientation=2
+                self.orientation=1
             end
             moveForward(xDif)
         elseif (xDif < 0) then
-            if(self.orientation~=2) then 
+            if(self.orientation~=1) then 
                 turtle.turnRight()
-                self.orientation=2
+                self.orientation=1
             end
             moveBack(-xDif)
         end
@@ -44,15 +56,15 @@ function TurtleState(_coords, _orientation)
         
         local zDif = z2-z1
         if(zDif > 0) then
-            if(self.orientation~=1) then 
+            if(self.orientation~=0) then 
                 turtle.turnLeft()
-                self.orientation=1
+                self.orientation=0
             end
             moveForward(zDif)
         elseif (zDif < 0) then
-            if(self.orientation~=1) then 
+            if(self.orientation~=0) then 
                 turtle.turnLeft()
-                self.orientation=1
+                self.orientation=0
             end
             moveBack(-zDif)
         end
@@ -93,6 +105,54 @@ function TurtleState(_coords, _orientation)
         local x = self.coords[1]
         local z = self.coords[3]
         return {x,z}
+    end
+
+    -- 0 FORWARD
+    -- 1 RIGHT
+    -- 2 BACK
+    -- 3 LEFT
+    function rotateTo(dirNum)
+        if self.orientation==dirNum then return end
+
+        if self.orientation == 0 then
+            if dirNum == 1 then
+                turtle.turnRight();
+            elseif dirNum == 2 then
+                turtle.turnRight();
+                turtle.turnRight();
+            elseif dirNum == 3 then
+                turtle.turnLeft();
+            end
+        elseif self.orientation ==1 then
+            if dirNum == 0 then
+                turtle.turnLeft();
+            elseif dirNum == 2 then
+                turtle.turnRight();
+            elseif dirNum == 3 then
+                turtle.turnRight();
+                turtle.turnRight();
+            end
+        elseif self.orientation ==2 then
+            if dirNum == 0 then
+                turtle.turnRight();
+                turtle.turnRight();
+            elseif dirNum == 1 then
+                turtle.turnLeft();
+            elseif dirNum == 3 then
+                turtle.turnRight();
+            end
+        elseif self.orientation ==3 then
+            if dirNum == 0 then
+                turtle.turnRight();
+            elseif dirNum == 1 then
+                turtle.turnRight();
+                turtle.turnRight();
+            elseif dirNum == 2 then
+                turtle.turnLeft();
+            end
+
+        end
+
     end
 
     return self

@@ -47,7 +47,7 @@ function writeTableToFile(data, fileName)
     end
     local file = fs.open(fileName, "w")
 
-    function f(_data, recursionNum)
+    local function f(_data, recursionNum)
         for key, value in pairs(_data) do
             if (type(value) == "table") then
                 for i = 1, recursionNum, 1 do

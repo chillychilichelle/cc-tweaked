@@ -102,7 +102,7 @@ turtle.forward()
 turtle.turnLeft()
 --x and z are off by 1
 local startingCoords = {1, 0, 1}
-local ts = TurtleState(startingCoords,1)
+local ts = TurtleState(startingCoords,0)
 
 
 --nearest neighbour algorithm per y-layer
