@@ -132,7 +132,17 @@ for i = 1, y, 1 do
         
         local nnBlockType = blockDictionary[nn.char];
         if(nnBlockType ~=nil and  not isCurrentSlotOfType(nnBlockType) and not nextItemSlotOfType(nnBlockType))then
-            --return and refill
+            --TODO: these restockProcess calls have a corner case issue
+            --if they go to restock, but the restock inventory is empty
+            --but they have a non-matching block in their inventory,
+            --they will place down the non-matching block when they return
+            --small issue bc it only happens when inventory is empty,
+            --which should ideally never happen.
+            --this issue is a subissue where running out of inventory
+            --skips a block being placed and never fills it
+
+            --issue doesnt happent if nnblocktype is nil because we dont care
+            --if the placed block doesn't match
             restockProcess(ts)
 
         elseif nnBlockType ==nil then
