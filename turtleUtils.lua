@@ -201,12 +201,11 @@ function TurtleState(_coords, _orientation)
         local y1 = self.coords[2]
         local yDif = y2 - y1
         if (yDif > 0) then
-            moveUp(yDif)
+            self.moveUp(yDif)
         elseif (yDif < 0) then
-            moveDown(-yDif)
+            self.moveDown(-yDif)
         end
 
-        self.coords[2] = y2
     end
 
     return self
