@@ -74,3 +74,6 @@ while #result > 0 do
     ts.moveToHorizontal({nnBlock["x"], nnBlock["z"]})
     ts.moveToVertical(nnBlock["y"])
 end
+
+ts.moveToHorizontal({0,0})
+ts.moveToVertical(-scanRadius)
