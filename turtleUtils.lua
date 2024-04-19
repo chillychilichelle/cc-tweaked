@@ -56,94 +56,6 @@ function TurtleState(_coords, _orientation)
     end
 
 
-
-    --TODO: assumes will never be blocked
-    --TODO: assumes will never be in 2 or 3
-    function self.moveToHorizontal(target)
-        local function moveToHorizontalFullTurn(self, target)
-            local x1 = self.coords[1]
-            local z1 = self.coords[3]
-
-            local x2 = target[1]
-            local z2 = target[2]
-
-            local xDif = x2 - x1
-            if (xDif > 0) then
-                self.rotateTo(1)
-            elseif (xDif < 0) then
-                self.rotateTo(3)
-            end
-            self.moveForward(xDif)
-
-            local zDif = z2 - z1
-            if (zDif > 0) then
-                self.rotateTo(0)
-            elseif (zDif < 0) then
-                self.rotateTo(2)
-            end
-            self.moveForward(zDif)
-        end
-
-        local function moveToHorizontalConstrainedTurn(self, target)
-            local x1 = self.coords[1]
-            local z1 = self.coords[3]
-
-            local x2 = target[1]
-            local z2 = target[2]
-
-            local xDif = x2 - x1
-            if (xDif > 0) then
-                if (self.orientation ~= 1) then
-                    turtle.turnRight()
-                    self.orientation = 1
-                end
-                moveForward(xDif)
-            elseif (xDif < 0) then
-                if (self.orientation ~= 1) then
-                    turtle.turnRight()
-                    self.orientation = 1
-                end
-                moveBack(-xDif)
-            end
-
-            local zDif = z2 - z1
-            if (zDif > 0) then
-                if (self.orientation ~= 0) then
-                    turtle.turnLeft()
-                    self.orientation = 0
-                end
-                moveForward(zDif)
-            elseif (zDif < 0) then
-                if (self.orientation ~= 0) then
-                    turtle.turnLeft()
-                    self.orientation = 0
-                end
-                moveBack(-zDif)
-            end
-
-            self.coords[1] = target[1]
-            self.coords[3] = target[2]
-        end
-
-        if (self.rotationLock == false) then
-            moveToHorizontalFullTurn(self, target)
-        else
-            moveToHorizontalConstrainedTurn(self, target)
-        end
-    end
-
-    function self.moveToVertical(y2)
-        local y1 = self.coords[2]
-        local yDif = y2 - y1
-        if (yDif > 0) then
-            moveUp(yDif)
-        elseif (yDif < 0) then
-            moveDown(-yDif)
-        end
-
-        self.coords[2] = y2
-    end
-
     function self.getXZ()
         local x = self.coords[1]
         local z = self.coords[3]
@@ -196,6 +108,95 @@ function TurtleState(_coords, _orientation)
                 turtle.turnLeft()
             end
         end
+
+        self.orientation = dirNum;
+    end
+
+    --TODO: assumes will never be blocked
+    --TODO: assumes will never be in 2 or 3
+    function self.moveToHorizontal(target)
+        local function moveToHorizontalFullTurn(self, target)
+            local x1 = self.coords[1]
+            local z1 = self.coords[3]
+
+            local x2 = target[1]
+            local z2 = target[2]
+
+            local xDif = x2 - x1
+            if (xDif > 0) then
+                self.rotateTo(1)
+            elseif (xDif < 0) then
+                self.rotateTo(3)
+            end
+            self.moveForward(math.abs(xDif))
+
+            local zDif = z2 - z1
+            if (zDif > 0) then
+                self.rotateTo(0)
+            elseif (zDif < 0) then
+                self.rotateTo(2)
+            end
+            self.moveForward(math.abs(zDif))
+        end
+
+        local function moveToHorizontalConstrainedTurn(self, target)
+            local x1 = self.coords[1]
+            local z1 = self.coords[3]
+
+            local x2 = target[1]
+            local z2 = target[2]
+
+            local xDif = x2 - x1
+            if (xDif > 0) then
+                if (self.orientation ~= 1) then
+                    turtle.turnRight()
+                    self.orientation = 1
+                end
+                moveForward(xDif)
+            elseif (xDif < 0) then
+                if (self.orientation ~= 1) then
+                    turtle.turnRight()
+                    self.orientation = 1
+                end
+                moveBack(-xDif)
+            end
+
+            local zDif = z2 - z1
+            if (zDif > 0) then
+                if (self.orientation ~= 0) then
+                    turtle.turnLeft()
+                    self.orientation = 0
+                end
+                moveForward(zDif)
+            elseif (zDif < 0) then
+                if (self.orientation ~= 0) then
+                    turtle.turnLeft()
+                    self.orientation = 0
+                end
+                moveBack(-zDif)
+            end
+
+            self.coords[1] = target[1]
+            self.coords[3] = target[2]
+        end
+
+        if (self.rotationLock == false) then
+            moveToHorizontalFullTurn(self, target)
+        else
+            moveToHorizontalConstrainedTurn(self, target)
+        end
+    end
+    
+    function self.moveToVertical(y2)
+        local y1 = self.coords[2]
+        local yDif = y2 - y1
+        if (yDif > 0) then
+            moveUp(yDif)
+        elseif (yDif < 0) then
+            moveDown(-yDif)
+        end
+
+        self.coords[2] = y2
     end
 
     return self
