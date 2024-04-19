@@ -9,11 +9,6 @@ end
 function restockProcess(ts)
     print("Restocking...")
     local leftOff =deepCopyTable(ts.coords)
-    local dir =ts.orientation
-
-    if dir==2 then
-        turtle.turnLeft()
-    end
 
     ts.moveToHorizontal({0,leftOff[3]})
     ts.moveToVertical(0)
@@ -25,9 +20,6 @@ function restockProcess(ts)
     ts.moveToVertical(leftOff[2])
     ts.moveToHorizontal({leftOff[1],leftOff[3]})
     
-    if dir==2 then
-        turtle.turnRight()
-    end
 end
 
 
