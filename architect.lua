@@ -16,7 +16,7 @@ function restockProcess(ts)
     end
 
     ts.moveToHorizontal({0,leftOff[3]})
-    ts.moveToVertical(1)
+    ts.moveToVertical(0)
     ts.moveToHorizontal({0,0})
     while turtle.suckUp() do
        print("Suck...") 
@@ -103,14 +103,13 @@ for key, value in pairs(blockDictionary) do
     print(key.." - "..value)
 end
 
---offset by 1,1
+--starting coords are offset by 1,1
 turtle.forward()
 turtle.turnRight()
 turtle.forward()
 turtle.turnLeft()
-
-
-local startingCoords = {1, 1, 1}
+--x and z are off by 1
+local startingCoords = {1, 0, 1}
 local ts = TurtleState(startingCoords,1)
 
 
@@ -168,5 +167,5 @@ end
 
 --return to origin
 ts.moveToHorizontal({0,ts.coords[3]})
-ts.moveToVertical(1)
+ts.moveToVertical(0)
 ts.moveToHorizontal({0,0})

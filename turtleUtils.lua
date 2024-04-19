@@ -1,11 +1,14 @@
 
-function TurtleState(coords, orientation)
-    ORIGIN = {1,1,1}
+function TurtleState(_coords, _orientation)
+    ORIGIN = {0,0,0}
     local self = {}
+    if _coords == nil then _coords = {0,0,0} end
+    if _orientation == nil then _orientation = 1 end
+
     self.coords = {}
-    self.coords[1] = coords[1]
-    self.coords[2] = coords[2]
-    self.coords[3] = coords[3]
+    self.coords[1] = _coords[1]
+    self.coords[2] = _coords[2]
+    self.coords[3] = _coords[3]
 
     self.destroyPerms = true
 
@@ -13,7 +16,7 @@ function TurtleState(coords, orientation)
     -- 2 RIGHT
     -- 3 BACK
     -- 4 LEFT
-    self.orientation = orientation
+    self.orientation = _orientation
 
     --TODO: assumes will never be blocked
     function self.moveToHorizontal(target)
@@ -25,15 +28,15 @@ function TurtleState(coords, orientation)
         
         local xDif = x2-x1
         if(xDif > 0) then
-            if(orientation~=2) then 
+            if(self.orientation~=2) then 
                 turtle.turnRight()
-                orientation=2
+                self.orientation=2
             end
             moveForward(xDif)
         elseif (xDif < 0) then
-            if(orientation~=2) then 
+            if(self.orientation~=2) then 
                 turtle.turnRight()
-                orientation=2
+                self.orientation=2
             end
             moveBack(-xDif)
         end
@@ -41,15 +44,15 @@ function TurtleState(coords, orientation)
         
         local zDif = z2-z1
         if(zDif > 0) then
-            if(orientation~=1) then 
+            if(self.orientation~=1) then 
                 turtle.turnLeft()
-                orientation=1
+                self.orientation=1
             end
             moveForward(zDif)
         elseif (zDif < 0) then
-            if(orientation~=1) then 
+            if(self.orientation~=1) then 
                 turtle.turnLeft()
-                orientation=1
+                self.orientation=1
             end
             moveBack(-zDif)
         end
