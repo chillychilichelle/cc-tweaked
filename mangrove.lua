@@ -1,5 +1,6 @@
 package.path = package.path .. ";../?.lua"
 require "turtleUtils";
+require "utils";
 
 local scanner =peripheral.wrap("right");
 local scanRadius = 8;
