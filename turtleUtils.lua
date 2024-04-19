@@ -21,6 +21,42 @@ function TurtleState(_coords, _orientation)
     -- 3 LEFT
     self.orientation = _orientation
 
+    
+
+    function self.moveUp(x)
+        for i = 1, x, 1 do
+            if turtle.up() then
+                self.coords[2] = self.coords[2] + 1
+            end
+        end
+    end
+
+    function self.moveDown(x)
+        for i = 1, x, 1 do
+            if turtle.down() then
+                self.coords[2] = self.coords[2] - 1
+            end
+        end
+    end
+
+    function self.moveForward(x)
+        for i = 1, x, 1 do
+            if turtle.forward() then
+                if self.orientation == 0 then
+                    self.coords[3] = self.coords[3] + 1
+                elseif self.orientation == 1 then
+                    self.coords[1] = self.coords[1] + 1
+                elseif self.orientation == 2 then
+                    self.coords[3] = self.coords[3] - 1
+                elseif self.orientation == 3 then
+                    self.coords[1] = self.coords[1] - 1
+                end
+            end
+        end
+    end
+
+
+
     --TODO: assumes will never be blocked
     --TODO: assumes will never be in 2 or 3
     function self.moveToHorizontal(target)
@@ -106,38 +142,6 @@ function TurtleState(_coords, _orientation)
         end
 
         self.coords[2] = y2
-    end
-
-    function self.moveUp(x)
-        for i = 1, x, 1 do
-            if turtle.up() then
-                self.coords[2] = self.coords[2] + 1
-            end
-        end
-    end
-
-    function self.moveDown(x)
-        for i = 1, x, 1 do
-            if turtle.down() then
-                self.coords[2] = self.coords[2] - 1
-            end
-        end
-    end
-
-    function self.moveForward(x)
-        for i = 1, x, 1 do
-            if turtle.forward() then
-                if self.orientation == 0 then
-                    self.coords[3] = self.coords[3] + 1
-                elseif self.orientation == 1 then
-                    self.coords[1] = self.coords[1] + 1
-                elseif self.orientation == 2 then
-                    self.coords[3] = self.coords[3] - 1
-                elseif self.orientation == 3 then
-                    self.coords[1] = self.coords[1] - 1
-                end
-            end
-        end
     end
 
     function self.getXZ()
