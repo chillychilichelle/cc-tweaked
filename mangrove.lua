@@ -13,18 +13,18 @@ end
 
 local table ={};
 
-for i = 1, size do
+for i = -size, size do
     table[i]={};
-    for j = 1, size do
+    for j = -size, size do
         table[i][j]={};
     end
 end
 
 for key, value in pairs(result) do
-    local x = value[x];
-    local y = value[y];
-    local z = value[z];
-    local name = value[name];
+    local x = value["x"];
+    local y = value["y"];
+    local z = value["z"];
+    local name = value["name"];
     table[x][y][z]=name;
 end
 
