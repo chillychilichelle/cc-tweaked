@@ -1,3 +1,5 @@
+--TODO: this does not work. the block filter doesn't work, the moving doesn't work, figure it out
+
 package.path = package.path .. ";../?.lua"
 require "turtleUtils";
 require "utils";
@@ -23,11 +25,13 @@ if result==nil then
     return;
 end
 
-for key, value in pairs(result) do
+for i = #result, 1, -1 do
+    local value = result[i]
     if value["name"] ~= "minecraft:mangrove_log" and value["name"] ~= "minecraft:mangrove_roots" then
-        table.remove(result, key)
+        table.remove(result, i)
     end
 end
+
 
 --unneeded table formatting
 --[[
