@@ -2,6 +2,8 @@ package.path = package.path .. ";../?.lua"
 require "turtleUtils"
 require "utils"
 
+--TODO: make it destroy obstacles, should probably finish turtleState reworks first
+
 function shouldPlaceBlock(currentChar)
     return (currentChar ~= '.' and currentChar ~=' ')
 end
@@ -103,7 +105,7 @@ turtle.turnLeft()
 --x and z are off by 1
 local startingCoords = {1, 0, 1}
 local ts = TurtleState(startingCoords,0)
-
+ts.rotationLock = true
 
 --nearest neighbour algorithm per y-layer
 for i = 1, y, 1 do

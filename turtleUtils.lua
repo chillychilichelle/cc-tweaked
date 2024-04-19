@@ -13,7 +13,8 @@ function TurtleState(_coords, _orientation)
     self.coords[2] = _coords[2]
     self.coords[3] = _coords[3]
 
-    self.rotationLock = true
+    self.rotationLock = false;
+    self.destructionLock = false;
 
     -- 0 FORWARD
     -- 1 RIGHT
@@ -25,6 +26,9 @@ function TurtleState(_coords, _orientation)
 
     function self.moveUp(x)
         for i = 1, x, 1 do
+            if turtle.detectUp() and not self.destructionLock then
+                turtle.digUp()
+            end
             if turtle.up() then
                 self.coords[2] = self.coords[2] + 1
             end
@@ -33,6 +37,9 @@ function TurtleState(_coords, _orientation)
 
     function self.moveDown(x)
         for i = 1, x, 1 do
+            if turtle.detectDown() and not self.destructionLock then
+                turtle.digDown()
+            end
             if turtle.down() then
                 self.coords[2] = self.coords[2] - 1
             end
@@ -41,6 +48,9 @@ function TurtleState(_coords, _orientation)
 
     function self.moveForward(x)
         for i = 1, x, 1 do
+            if turtle.detect() and not self.destructionLock then
+                turtle.dig()
+            end
             if turtle.forward() then
                 if self.orientation == 0 then
                     self.coords[3] = self.coords[3] + 1

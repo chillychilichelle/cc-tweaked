@@ -9,6 +9,19 @@ function manhattan(a, b)
     return math.abs(x1 - x2) + math.abs(y1 - y2)
 end
 
+
+function manhattan3d(a, b)
+    x1 = a[1]
+    y1 = a[2]
+    z1 = a[3]
+
+    x2 = b[1]
+    y2 = b[2]
+    z2 = b[3]
+
+    return math.abs(x1 - x2) + math.abs(y1 - y2) + math.abs(z1 - z2)
+end
+
 function deepCopyTable(arr)
     local copy = {}
     for i, v in ipairs(arr) do

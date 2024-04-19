@@ -35,7 +35,7 @@ end
         x=9:    330 fuel
         x=10:   739 fuel
 
-    It returns a table made out of numeric keys and nested tables values
+    It returns an array-like table containg nested tables values
     These nested table values represent blocks, containg name, coords,
         and another nested table containing tags. See below for a sample
     
