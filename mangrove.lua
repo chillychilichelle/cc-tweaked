@@ -23,7 +23,7 @@ if result==nil then
 end
 
 for key, value in pairs(result) do
-    if value[name] ~= "minecraft:mangrove_log" and value[name] ~= "minecraft:mangrove_roots" then
+    if value["name"] ~= "minecraft:mangrove_log" and value["name"] ~= "minecraft:mangrove_roots" then
         table.remove(result, key)
     end
 end
@@ -50,22 +50,22 @@ end
 
 while #result > 0 do
     local nnInd = #result
-    local nn = result[nnInd]
-    local nnDist = manhattan(ts.coords, nn)
+    local nnBlock = result[nnInd]
+    local nnDist = manhattan3d(ts.coords, {nnBlock["x"], nnBlock["y"], nnBlock["z"]})
 
-    for j = 1, #layersPoints, 1 do
-        local newCoords = result[j]
-        local newDist = manhattan3d(ts.coords, {newCoords[x], newCoords[y], newCoords[z]})
+    for j = 1, #result, 1 do
+        local newBlock = result[j]
+        local newDist = manhattan3d(ts.coords, {newBlock["x"], newBlock["y"], newBlock["z"]})
         if (newDist < nnDist) then
             nnInd = j
-            nn = newCoords
+            nnBlock = newBlock
             nnDist = newDist
         end
         if (nnDist == 1) then
             break
         end
     end
-    result.remove(layersPoints, nnInd)
-    ts.moveToHorizontal({nn[1], nn[3]})
-    ts.moveToVertical(nn[2])
+    table.remove(result, nnInd)
+    ts.moveToHorizontal({nnBlock["x"], nnBlock["z"]})
+    ts.moveToVertical(nnBlock["y"])
 end
