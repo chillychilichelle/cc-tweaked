@@ -1,5 +1,3 @@
---TODO: this does not work. the block filter doesn't work, the moving doesn't work, figure it out
-
 package.path = package.path .. ";../?.lua"
 require "turtleUtils";
 require "utils";
@@ -31,27 +29,6 @@ for i = #result, 1, -1 do
         table.remove(result, i)
     end
 end
-
-
---unneeded table formatting
---[[
-local table ={};
-
-for i = -size, size do
-    table[i]={};
-    for j = -size, size do
-        table[i][j]={};
-    end
-end
-
-for key, value in pairs(result) do
-    local x = value["x"];
-    local y = value["y"];
-    local z = value["z"];
-    local name = value["name"];
-    table[x][y][z]=name;
-end
-]]
 
 while #result > 0 do
     local nnInd = #result
