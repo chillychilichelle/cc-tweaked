@@ -146,6 +146,9 @@ for i = 1, y, 1 do
             --issue doesnt happent if nnblocktype is nil because we dont care
             --if the placed block doesn't match
             restockProcess(ts)
+            
+            --forces a switch to the correct block type after restock
+            nextItemSlotOfType(nnBlockType)
 
         elseif nnBlockType ==nil then
             if(isCurrentSlotEmpty())then

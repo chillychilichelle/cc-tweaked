@@ -1,0 +1,16 @@
+4
+1
+6
+ 
+AABB
+AABB
+BBAA
+BBAA
+AABB
+AABB
+ 
+{
+ "B": "minecraft:black_wool",
+ "A": "minecraft:white_wool"
+}
+ 
