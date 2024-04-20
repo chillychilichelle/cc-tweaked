@@ -26,7 +26,7 @@ end
 
 for i = #result, 1, -1 do
     local value = result[i]
-    if value["name"] ~= "minecraft:mangrove_log" and value["name"] ~= "minecraft:mangrove_roots" then
+    if value["name"] ~= "minecraft:oak_log" then
         table.remove(result, i)
     end
 end
