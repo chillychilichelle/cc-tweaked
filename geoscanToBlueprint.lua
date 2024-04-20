@@ -25,17 +25,17 @@ if(fs.exists(path..fileName)) then
 end
 
 print("Select X (Rightwards length): ")
-local x_MAX =read()
+local x_MAX =tonumber(read())
 print("Select Y (Upwards length): ")
-local y_MAX =read()
+local y_MAX =tonumber(read())
 print("Select Z (Forwards length): ")
-local z_MIN =read()
+local z_MIN =tonumber(read())
 
 print("X:  "..x_MAX.." Y:  "..y_MAX.." Z:  "..z_MIN)
 print("Press enter to begin...")
 read()
 
-local scanRadius = tonumber(math.max(math.max(x_MAX,y_MAX),z_MIN))
+local scanRadius = math.max(math.max(x_MAX,y_MAX),z_MIN)
 
 
 local result, msg = scanner.scan(scanRadius);
@@ -64,7 +64,7 @@ for _, value in pairs(result) do
     local z = value["z"];
     local name = value["name"];
 
-    if( x<1 or y<0 or z>-1) then
+    if( x<1 or y<0 or z>-1 or x >x_MAX or y>y_MAX or z<z_MIN) then
         goto continue
     end
 
