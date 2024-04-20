@@ -68,7 +68,7 @@ file.write(size.."\n")
 file.write("\n")
 for i = 1, scanRadius, 1 do
     for j = scanRadius, 1, -1 do
-        for k = 1, scanRadius, 1 do
+        for k = -scanRadius, -1, 1 do
             if(mapData[k][i][j]~=nil)then
                 file.write(mapData[k][i][j])
             else
