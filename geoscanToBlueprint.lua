@@ -3,8 +3,9 @@ require "turtleUtils";
 require "utils";
 
 
-print("PLACE IN THE UPMOST BOTTOM-LEFT CORNER")
+print("PLACE IN THE BOTTOM-LEFT CORNER")
 print("(RELATIVE TO NORTH, NOT THE BUILD)")
+print("AT THE LOWEST POINT OF YOUR BUILD")
 print(" ")
 print("Name the result blueprint (Don't include \".txt\"): ")
 local path = "blueprints/"
@@ -36,7 +37,8 @@ local blockDictionary ={}
 
 for i = 1, scanRadius do
     mapData[i]={};
-    for j = 1, scanRadius do
+    --since it's AT (not below) the lowest point of the build, it should count 0
+    for j = 0, scanRadius do
         mapData[i][j]={};
     end
 end
@@ -66,7 +68,7 @@ file.write(size.."\n")
 file.write(size.."\n")
 file.write(size.."\n")
 file.write("\n")
-for i = 1, scanRadius, 1 do
+for i = 0, scanRadius, 1 do
     for j = -1, -scanRadius, -1 do
         for k = 1, scanRadius, 1 do
             if(mapData[k][i][j]~=nil)then
