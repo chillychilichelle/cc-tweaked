@@ -34,12 +34,6 @@ local scanner =peripheral.wrap("right");
 print("Input scan radius:")
 local scanRadius =tonumber(read())
 
-for i = 1, scanRadius do
-    if turtle.detectUp() then
-        turtle.digUp()
-    end
-    turtle.up()
-end
 
 local ts = TurtleState()
 ts.rotationLock=false;
@@ -81,4 +75,4 @@ while #result > 0 do
 end
 
 ts.moveToHorizontal({0,0})
-ts.moveToVertical(-scanRadius)
+ts.moveToVertical(0)
