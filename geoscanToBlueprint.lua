@@ -49,12 +49,16 @@ for _, value in pairs(result) do
     local z = value["z"];
     local name = value["name"];
 
+    if( x<1 or y<1 or z>-1) then
+        goto continue
+    end
+
     if(blockDictionary[name]==nil)then
         blockDictionary[name]=string.char(current);
         current = current + 1
     end
     mapData[x][y][z]=blockDictionary[name]
-
+    ::continue::
 end
 
 local file = fs.open(path..fileName,"w")
