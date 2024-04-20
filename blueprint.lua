@@ -1,8 +1,0 @@
---TODO
---make a blueprint class that has xyz measurements and a coord
---as well as a blueprint reader class that standardizes how .txt files are read and stored
---include new tag system that can modify how a blueprint is build
---first one could be RANDOM, whereit shuffles what block it places each time
---alternatively, this could just be an architect setting
---architect only works with these basic blueprints, 
---and then whatever new multimateria blueprint format we come up with is a diff project
