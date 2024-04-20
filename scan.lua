@@ -33,7 +33,7 @@ for i = 1, x, 1 do
     end
 end
 
-local current = 49
+local current = 65
 
 for i = y, 1, -1 do
     for j = 1, x, 1 do
