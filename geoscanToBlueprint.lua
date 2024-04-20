@@ -17,13 +17,13 @@ if(fs.exists(path..fileName)) then
 end
 
 print("Select largest axis length/scan radius: ")
-local scanRadius =read()
+local scanRadius = tonumber(read())
 
 
 local scanner =peripheral.wrap("right");
 local size =2*scanRadius +1;
 
-local result, msg = scanner.scan(tonumber(scanRadius));
+local result, msg = scanner.scan(scanRadius);
 
 if result==nil then
     print("Error: "..msg);
@@ -67,8 +67,8 @@ file.write(size.."\n")
 file.write(size.."\n")
 file.write("\n")
 for i = 1, scanRadius, 1 do
-    for j = scanRadius, 1, -1 do
-        for k = -scanRadius, -1, 1 do
+    for j = -1, -scanRadius, -1 do
+        for k = 1, scanRadius, 1 do
             if(mapData[k][i][j]~=nil)then
                 file.write(mapData[k][i][j])
             else
