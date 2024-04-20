@@ -11,7 +11,7 @@ end
 
 print("PLACE IN THE BOTTOM-LEFT CORNER")
 print("(RELATIVE TO NORTH, NOT THE BUILD)")
-print("AT THE LOWEST POINT OF YOUR BUILD")
+print("AT THE FLOOR-LEVEL OF YOUR BUILD")
 print(" ")
 print("Name the result blueprint (Don't include \".txt\"): ")
 local path = "blueprints/"
@@ -24,11 +24,11 @@ if(fs.exists(path..fileName)) then
     fs.delete(path..fileName)
 end
 
-print("Select X (Rightwards length): ")
+print("Select X (How many blocks from this computer does it go right?): ")
 local x_MAX =tonumber(read())
-print("Select Y (Upwards length): ")
+print("Select Y (How many blocks from this computer does it go up, not counting the floor?): ")
 local y_MAX =tonumber(read())
-print("Select Z (Forwards length): ")
+print("Select X (How many blocks from this computer does it go forward?): ")
 local z_MIN =tonumber(read())
 
 print("X:  "..x_MAX.." Y:  "..y_MAX.." Z:  "..z_MIN)
@@ -64,7 +64,7 @@ for _, value in pairs(result) do
     local z = value["z"];
     local name = value["name"];
 
-    if( x<1 or y<0 or z>-1 or x >x_MAX or y>y_MAX or z<z_MIN) then
+    if( x<1 or y<0 or z>-1 or x >x_MAX or y>y_MAX or z<-z_MIN) then
         goto continue
     end
 
