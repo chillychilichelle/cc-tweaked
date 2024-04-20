@@ -104,3 +104,12 @@ function suffix(word, suffix)
     end
     return word .. suffix
 end
+
+function isElementInArray(element,array)
+    for _, value in pairs(array) do
+        if value==element then
+            return true;
+        end
+    end
+    return false;
+end
