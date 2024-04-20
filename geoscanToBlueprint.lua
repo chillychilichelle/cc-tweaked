@@ -78,7 +78,8 @@ end
 
 local file = fs.open(path..fileName,"w")
 file.write(x_MAX.."\n")
-file.write(y_MAX.."\n")
+--since when we inputted the y_MAX, we didn't include the floor, we have to compensate for it
+file.write((y_MAX+1).."\n")
 file.write(z_MIN.."\n")
 file.write("\n")
 for i = 0, y_MAX, 1 do
@@ -110,6 +111,6 @@ if currentASCII ~= originalASCII then
     end
 end
 file.write("}\n")
-
-
 file.close()
+
+print("Success! The file has been stored at: "..fileName)
