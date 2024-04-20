@@ -66,7 +66,11 @@ file.write("\n")
 for i = -scanRadius, scanRadius, 1 do
     for j = scanRadius, -scanRadius, -1 do
         for k = -scanRadius, scanRadius, 1 do
-            file.write(mapData[k][i][j])
+            if(mapData[k][i][j]~=nil)then
+                file.write(mapData[k][i][j])
+            else
+                file.write(" ");
+            end
         end
         file.write("\n")
     end
