@@ -24,9 +24,18 @@ if(fs.exists(path..fileName)) then
     fs.delete(path..fileName)
 end
 
+print("Select X (Rightwards length): ")
+local x_MAX =read()
+print("Select Y (Upwards length): ")
+local y_MAX =read()
+print("Select Z (Forwards length): ")
+local z_MIN =read()
 
-print("Select largest axis length/scan radius: ")
-local scanRadius = tonumber(read())
+print("X:  "..x_MAX.." Y:  "..y_MAX.." Z:  "..z_MIN)
+print("Press enter to begin...")
+read()
+
+local scanRadius = tonumber(math.max(math.max(x_MAX,y_MAX),z_MIN))
 
 
 local result, msg = scanner.scan(scanRadius);
@@ -38,10 +47,10 @@ end
 local mapData ={};
 local blockDictionary ={}
 
-for i = 1, scanRadius do
+for i = 1, x_MAX do
     mapData[i]={};
     --since it's AT (not below) the lowest point of the build, it should count 0
-    for j = 0, scanRadius do
+    for j = 0, y_MAX do
         mapData[i][j]={};
     end
 end
@@ -68,13 +77,13 @@ for _, value in pairs(result) do
 end
 
 local file = fs.open(path..fileName,"w")
-file.write(scanRadius.."\n")
-file.write(scanRadius.."\n")
-file.write(scanRadius.."\n")
+file.write(x_MAX.."\n")
+file.write(y_MAX.."\n")
+file.write(z_MIN.."\n")
 file.write("\n")
-for i = 0, scanRadius, 1 do
-    for j = -1, -scanRadius, -1 do
-        for k = 1, scanRadius, 1 do
+for i = 0, y_MAX, 1 do
+    for j = -1, -z_MIN, -1 do
+        for k = 1, x_MAX, 1 do
             if(mapData[k][i][j]~=nil)then
                 file.write(mapData[k][i][j])
             else
@@ -90,7 +99,6 @@ end
 if currentASCII ~= originalASCII then
     local c = 1;
     local cFin = currentASCII-originalASCII;
-    file.write("\n")
     file.write("{\n")
     for key, value in pairs(blockDictionary) do
         if c<cFin then
