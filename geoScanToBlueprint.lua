@@ -23,7 +23,7 @@ local scanRadius =read()
 local scanner =peripheral.wrap("right");
 local size =2*scanRadius +1;
 
-local result, msg = scanner.scan(scanRadius);
+local result, msg = scanner.scan(tonumber(scanRadius));
 
 if result==nil then
     print("Error: "..msg);
@@ -35,9 +35,9 @@ local mapData ={};
 local blockDictionary ={}
 
 --change this to only be scanradius
-for i = -size, size do
+for i = -scanRadius, scanRadius do
     mapData[i]={};
-    for j = -size, size do
+    for j = -scanRadius, scanRadius do
         mapData[i][j]={};
     end
 end
@@ -63,9 +63,9 @@ file.write(size.."\n")
 file.write(size.."\n")
 file.write(size.."\n")
 file.write("\n")
-for i = 1, y, 1 do
-    for j = z, 1, -1 do
-        for k = 1, x, 1 do
+for i = -scanRadius, scanRadius, 1 do
+    for j = scanRadius, -scanRadius, -1 do
+        for k = -scanRadius, scanRadius, 1 do
             file.write(mapData[k][i][j])
         end
         file.write("\n")
